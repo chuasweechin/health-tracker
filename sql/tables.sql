@@ -19,7 +19,9 @@ CREATE TABLE IF NOT EXISTS stat (
 CREATE TABLE IF NOT EXISTS activity (
     id SERIAL PRIMARY KEY,
     name TEXT,
-    metabolic_equivalent INTEGER
+    type TEXT,
+    metabolic_equivalent INTEGER,
+    compendium_code TEXT
 );
 
 CREATE TABLE IF NOT EXISTS activity_log (
