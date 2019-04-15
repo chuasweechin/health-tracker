@@ -1,0 +1,1 @@
+INSERT INTO users(username, password, created_at) VALUES ('demo', '5982616cb6d9b51226d04a28952801d1bab0b24fefa95e75dd6c0b5a80dd9e3d', '15/4/2019 21:35:00');
