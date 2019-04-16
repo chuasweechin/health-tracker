@@ -1,20 +1,17 @@
-CREATE TABLE IF NOT EXISTS user (
+CREATE TABLE IF NOT EXISTS user_account (
     username TEXT PRIMARY KEY,
     password TEXT,
     created_at TIMESTAMP
 );
 
-CREATE TABLE IF NOT EXISTS stat (
+CREATE TABLE IF NOT EXISTS user_stat (
     id SERIAL PRIMARY KEY,
-    username TEXT,
+    fk_user_account_username TEXT,
     birth_date TIMESTAMP,
-    bmi INTEGER,
-    bmi_category TEXT,
-    weight_in_kg INTEGER,
-    weight_in_pound INTEGER,
-    height_in_cm INTEGER,
-    weight_in_m INTEGER,
-    created_at TIMESTAMP
+    weight_in_gram INTEGER,
+    height_in_centimetre INTEGER,
+    created_at TIMESTAMP,
+    updated_at TIMESTAMP
 );
 
 CREATE TABLE IF NOT EXISTS activity (
@@ -22,18 +19,20 @@ CREATE TABLE IF NOT EXISTS activity (
     name TEXT,
     type TEXT,
     compendium_code TEXT,
-    kcal_per_kg_hour INTEGER,
-    kcal_per_kg_minute INTEGER,
-    kcal_per_kg_second INTEGER
+    kcal_per_kg_hour decimal,
+    kcal_per_kg_minute decimal,
+    kcal_per_kg_second decimal
 );
 
-CREATE TABLE IF NOT EXISTS activity_log (
+CREATE TABLE IF NOT EXISTS user_activity_log (
     id SERIAL PRIMARY KEY,
-    username TEXT,
-    activity_id TEXT,
-    count INTEGER,
-    duration INTEGER,
-    kilocalories_burned INTEGER,
+    fk_user_account_username TEXT,
+    fk_activity_id TEXT,
+    activity_count INTEGER,
+    duration_in_second INTEGER,
+    current_weight_in_gram INTEGER,
+    current_height_in_centimetre INTEGER,
+    kcal_burned INTEGER,
     created_at TIMESTAMP,
     updated_at TIMESTAMP
 );

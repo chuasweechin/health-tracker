@@ -1,5 +1,5 @@
-INSERT INTO users (username, password, created_at)
-VALUES ('demo', '5982616cb6d9b51226d04a28952801d1bab0b24fefa95e75dd6c0b5a80dd9e3d', '15/4/2019 21:35:00');
+INSERT INTO user_account (username, password, created_at)
+VALUES ('demo', '5982616cb6d9b51226d04a28952801d1bab0b24fefa95e75dd6c0b5a80dd9e3d', '2019-04-16 11:29:12');
 
 INSERT INTO activity (name, type, compendium_code, kcal_per_kg_hour, kcal_per_kg_minute, kcal_per_kg_second)
 VALUES ('push-up (vigorous effort)', 'calisthenics', '02020', 8.0, 0.132, 0.0022);
@@ -8,7 +8,7 @@ INSERT INTO activity (name, type, compendium_code, kcal_per_kg_hour, kcal_per_kg
 VALUES ('sit-up (vigorous effort)', 'calisthenics', '02020', 8.0, 0.133, 0.0022);
 
 INSERT INTO activity (name, type, compendium_code, kcal_per_kg_hour, kcal_per_kg_minute, kcal_per_kg_second)
-VALUES ('pull-up (vigorous effort)', 'calisthenics', '02020' 8.0, 0.133, 0.0022);
+VALUES ('pull-up (vigorous effort)', 'calisthenics', '02020', 8.0, 0.133, 0.0022);
 
 INSERT INTO activity (name, type, compendium_code, kcal_per_kg_hour, kcal_per_kg_minute, kcal_per_kg_second)
 VALUES ('jumping jack (vigorous effort)', 'calisthenics', '02020', 8.0, 0.133, 0.0022);
