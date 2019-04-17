@@ -24,12 +24,12 @@ CREATE TABLE IF NOT EXISTS activity (
 CREATE TABLE IF NOT EXISTS user_activity_log (
     id SERIAL PRIMARY KEY,
     fk_user_account_username TEXT,
-    fk_activity_id TEXT,
+    fk_activity_id INTEGER,
     activity_count INTEGER,
     duration_in_second INTEGER,
     current_weight_in_kg decimal,
     current_height_in_cm decimal,
-    kcal_burned decimal,
+    kcal_burnt decimal,
     created_at TIMESTAMP,
     updated_at TIMESTAMP
 );

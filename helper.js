@@ -18,8 +18,12 @@ module.exports.hash = function (str) {
     return sha256(str + SALT);
 }
 
+module.exports.formatDateTime = function (d) {
+    return moment(d).format('Do MMM YYYY, h:mm:ss a');
+}
+
 module.exports.getCurrentDateTime = function () {
-    return moment().format('YYYY MM DD, h:mm:ss');
+    return moment().format('YYYY MM DD, HH:mm:ss');
 }
 
 module.exports.calculateAge = function (d) {

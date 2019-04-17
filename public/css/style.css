@@ -164,7 +164,7 @@ body {
 .login > a {
 	display: block;
 	font-size: 12px;
-	margin-top: 15px;
+	margin-top: 10px;
 }
 
 /*=================
@@ -172,7 +172,7 @@ body {
  ================*/
 .register {
 	width: 40%;
-	margin: 20px auto 0px auto;
+	margin: 0px auto 0px auto;
 }
 
 .register > .container > h1 {
@@ -211,23 +211,43 @@ body {
 .register > .container > a {
 	display: block;
 	font-size: 12px;
-	margin-left: 40%;
-	margin-top: 15px;
+	margin-left: 42%;
+	margin-top: 10px;
 	margin-bottom: 15px;
 }
+
+/*======================
+  Activity Log Page
+ =====================*/
+.activityLog {
+	padding: 20px 50px 0px 50px;
+}
+
+.activityLog > h1 {
+	margin-bottom: 10px;
+}
+
 
 /*======================
   Add Activity Log Page
  =====================*/
 .addActivityLog {
-	width: 60%;
-	margin: 18px;
+	width: 100%;
+	margin: 20px 0px 0px 50px;
 }
 
-.addActivityLog > .container > .row > .col-12 {
+.addActivityLog > .container > .row > .col-8 {
 	margin-top: 18px;
 }
 
 .addActivityLog > .container > .row > .calories{
 	font-size: 26px;
+}
+
+.addActivityLog > .container > .row > .col-8 > .activity {
+	text-transform: capitalize;
+}
+
+.addActivityLog > input {
+	margin: 20px 0px 0px 15px;
 }

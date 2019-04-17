@@ -1,16 +1,24 @@
-var React = require("react");
-var HomeDefaultLayout = require('./layouts/homeDefault');
+const React = require("react");
+const helper = require('../helper');
+const HomeDefaultLayout = require('./layouts/homeDefault');
 
-class Activities extends React.Component {
+class ActivityLog extends React.Component {
   render() {
-    let elements = this.props.data.map( (item) => {
-        return <option value= { item.kcal_per_kg_second} data-id= { item.id }>{ item.name }</option>
+    let elements = this.props.data.map( (item, index) => {
+        return  <tr>
+                    <td>{ index + 1 }</td>
+                    <td>{ helper.formatDateTime(item.created_at) }</td>
+                    <td>{ item.name }</td>
+                    <td>{ item.activity_count }</td>
+                    <td>{ item.duration_in_second }</td>
+                    <td>{ item.kcal_burnt }</td>
+                </tr>
     });
 
     return (
-        <select className="form-control activity" name="activity">
+        <tbody>
             { elements }
-        </select>
+        </tbody>
     );
   }
 }
@@ -19,30 +27,26 @@ class Home extends React.Component {
   render() {
     return (
         <HomeDefaultLayout title="home" login="true" data= { this.props }>
-            <form className="addActivityLog" action="/activity_log" method="POST">
-                 <div className="container">
-                    <h1>Add New Activity Log</h1>
+            <div className="table-responsive activityLog">
+                <h1>Your Activity Log</h1>
 
-                    <div className="row">
-                        <div className="col-12">
-                            Activity:
-                            <Activities data={ this.props.activities }/>
-                        </div>
+                <table class="table table-bordered table-striped">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Date</th>
+                      <th scope="col">Activity</th>
+                      <th scope="col">Count</th>
+                      <th scope="col">Duration</th>
+                      <th scope="col">Kcal Burnt</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                     <ActivityLog data={ this.props.activities }/>
+                  </tbody>
+                </table>
+            </div>
 
-                        <div className="col-12">
-                            Count: <input type="number" className="form-control count" name="count"/>
-                        </div>
-
-                        <div className="col-12">
-                            Duration (second): <input type="number" className="form-control duration" name="duration"/>
-                        </div>
-
-                        <div className="col-12 calories">
-                            Calories Burnt: <label>0</label> kcal
-                        </div>
-                    </div>
-                </div>
-            </form>
         </HomeDefaultLayout>
     );
   }
