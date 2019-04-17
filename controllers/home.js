@@ -32,6 +32,8 @@ module.exports = function(db) {
             response.render('user/login');
         } else {
             try {
+                let weightResult = await db.weight.getAllWeight(request.cookies['username']);
+
                 let data = {
                     'name': request.cookies['name'],
                     'gender': request.cookies['gender'],
@@ -40,6 +42,8 @@ module.exports = function(db) {
                     'height': request.cookies['height']
                 }
 
+                let processedData = helper.processDataForChart(weightResult, 'weight_in_kg', 'created_at');
+                response.cookie('weightLog', JSON.stringify(processedData));
                 response.render('statistics', data);
 
             } catch (e) {

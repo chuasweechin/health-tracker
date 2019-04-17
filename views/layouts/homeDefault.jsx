@@ -17,9 +17,11 @@ class HomeDefaultLayout extends React.Component {
                     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossOrigin="anonymous"/>
                     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet"/>
                     <link rel="stylesheet" href="/css/style.css"/>
+                    <script src="/js/script.js"></script>
                 </head>
 
                 <body>
+
                     <div className="header">
                         <div className="logo">Fitness <span>Tracker</span></div>
                         { logoutElement }

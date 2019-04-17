@@ -18,14 +18,29 @@ module.exports.hash = function (str) {
     return sha256(str + SALT);
 }
 
-module.exports.formatDateTime = function (d) {
-    return moment(d).format('Do MMM YYYY, h:mm:ss a');
+module.exports.formatDateTime = function (date) {
+    return moment(date).format('Do MMM YYYY, h:mm:ss a');
 }
 
 module.exports.getCurrentDateTime = function () {
     return moment().format('YYYY MM DD, HH:mm:ss');
 }
 
-module.exports.calculateAge = function (d) {
-    return new Date().getFullYear() - new Date(d).getFullYear();
+module.exports.calculateAge = function (date) {
+    return new Date().getFullYear() - new Date(date).getFullYear();
+}
+
+module.exports.processDataForChart = function (dataset, xLabel, yLabel) {
+    let y = [];
+    let x = [];
+
+    dataset.forEach((item) => {
+        x.push(Number(item[xLabel]));
+        y.push(moment(item[yLabel]).format('YYYY-MM-DD'));
+    })
+
+    return {
+        yAxis: x,
+        xAxis: y
+    }
 }

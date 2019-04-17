@@ -1,19 +1,27 @@
-var ctx = document.getElementById('myChart').getContext('2d');
-var chart = new Chart(ctx, {
-    // The type of chart we want to create
-    type: 'line',
+let ctx = document.getElementById('myChart').getContext('2d');
 
-    // The data for our dataset
+let weightDataset = JSON.parse(getCookie('weightLog'));
+console.log(weightDataset);
+let chart = new Chart(ctx, {
+    type: 'line',
     data: {
-        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        labels: weightDataset.xAxis,
         datasets: [{
-            label: 'My First dataset',
-            backgroundColor: 'rgb(255, 99, 132)',
+            label: 'Weight Trend',
             borderColor: 'rgb(255, 99, 132)',
-            data: [0, 10, 5, 2, 20, 30, 45]
+            data: weightDataset.yAxis
         }]
     },
-
-    // Configuration options go here
-    options: {}
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true,
+                    callback: function(value, index, values) {
+                        return value + ' kg';
+                    }
+                }
+            }]
+        }
+    }
 });

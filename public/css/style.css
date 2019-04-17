@@ -59,7 +59,7 @@ body {
  ==========*/
 .main > .nav {
 	width: 20%;
-	height: 80%;
+	height: 550px;
 	margin-left: 25px;
 	border-radius: 8px;
 	background-color: #FFFFFF;
@@ -277,5 +277,17 @@ body {
 }
 
 .activityLog > h2 {
+	margin-bottom: 10px;
+}
+
+/*======================
+  Stats Page
+ =====================*/
+.stats {
+	font-size: 15px;
+	padding: 20px 50px 0px 50px;
+}
+
+.stats > h2 {
 	margin-bottom: 10px;
 }

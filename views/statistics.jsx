@@ -6,8 +6,11 @@ class Statistics extends React.Component {
   render() {
     return (
         <HomeDefaultLayout title="home" login="true" data= { this.props }>
-            <h2>Stats</h2>
-            <canvas id="myChart"></canvas>
+            <div className="stats">
+                <h2>Weight Statistics</h2>
+                <canvas id="myChart"></canvas>
+            </div>
+
             <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
             <script src="/js/statsScript.js"></script>
         </HomeDefaultLayout>

@@ -4,7 +4,7 @@ module.exports = function(dbPoolInstance) {
     let getAllWeight = async function(input) {
         try {
             const values = [input];
-            const sqlQuery = `SELECT * FROM user_weight_log
+            const sqlQuery = `SELECT weight_in_kg, created_at FROM user_weight_log
                               WHERE fk_user_account_username = $1`;
 
             let result = await dbPoolInstance.query(sqlQuery, values);
@@ -19,7 +19,7 @@ module.exports = function(dbPoolInstance) {
     let getLatestWeight = async function(input) {
         try {
             const values = [input];
-            const sqlQuery = `select weight_in_kg from user_weight_log
+            const sqlQuery = `SELECT weight_in_kg from user_weight_log
                               WHERE fk_user_account_username = $1
                               ORDER BY created_at DESC limit 1`;
 
