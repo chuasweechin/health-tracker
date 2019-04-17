@@ -17,8 +17,6 @@ class Activities extends React.Component {
 
 class Home extends React.Component {
   render() {
-
-    console.log(this.props);
     return (
         <HomeDefaultLayout title="home" login="true" data= { this.props }>
             <form className="addActivityLog" action="/activity_log" method="POST">

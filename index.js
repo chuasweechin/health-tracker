@@ -42,7 +42,7 @@ const allModels = require('./db');
  */
 
 // get the thing that contains all the routes
-const setRoutesFunction = require('./controllers/routes');
+const setRoutesFunction = require('./routes');
 
 // call it and pass in the "app" so that we can set routes on it (also models)
 setRoutesFunction(app, allModels);

@@ -1,14 +1,13 @@
-const SALT = '9UYS*u7y^@hgs';
-const sha256 = require('js-sha256');
+
 const helper = require('../helper');
 
 module.exports = function(dbPoolInstance) {
 
-    let authenticate = async function(username, password) {
+    let authenticate = async function(input) {
         try {
-            const passwordHash = sha256(password + SALT);
+            const passwordHash = helper.hash(input.password)
+            const values = [input.username, passwordHash];
 
-            const values = [username, passwordHash];
             const sqlQuery = `SELECT username, last_name, first_name, gender, weight_in_kg, height_in_cm, birthday
                               FROM user_account
                               WHERE username= $1 AND password= $2`;
@@ -22,13 +21,15 @@ module.exports = function(dbPoolInstance) {
         }
     };
 
-    let createAccount = async function(username, password) {
+    let createAccount = async function(input) {
         try {
-            const passwordHash = sha256(password + SALT);
+            const passwordHash = helper.hash(input.password)
+            const values = [input.username, passwordHash, input.firstname, input.lastname,
+                                input.gender, input.birthday, input.weight, input.height, helper.getCurrentDateTime()];
 
-            const values = [username, passwordHash, Date.now()];
-            const sqlQuery = `INSERT INTO user_account (username, password, created_at)
-                              VALUES ($1, $2, $3) RETURNING *`;
+            const sqlQuery = `INSERT INTO user_account
+                              (username, password, first_name, last_name, gender, birthday, weight_in_kg, height_in_cm, created_at)
+                              VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)`;
 
             await dbPoolInstance.query(sqlQuery, values);
 

@@ -1,7 +1,7 @@
 let calculateCalories = function () {
     if (durationInputElement.value !== "") {
         let caloriesPerSecond = Number(activityInputElement.value);
-        let duration =Number(durationInputElement.value);
+        let duration = Number(durationInputElement.value);
         let weight = Number(document.cookie.split("; ")[4].split("=")[1]);
 
         let caloriesLabelElement = document.querySelector(".addActivityLog > .container > .row > .calories > label");
@@ -15,11 +15,6 @@ let activityInputElement = document.querySelector('.addActivityLog > .container 
 
 durationInputElement.addEventListener('keyup', calculateCalories);
 activityInputElement.addEventListener('change', calculateCalories);
-
-
-
-
-
 
 
 

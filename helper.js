@@ -1,33 +1,27 @@
 const SALT = '9UYS*u7y^@hgs';
+const moment = require('moment');
 const sha256 = require('js-sha256');
 
-let addZero = function(n) {
-    if (n < 10) {
-        n = "0" + n;
-    }
-
-    return n;
-}
-
-module.exports.getCurrentDateAndTime = function() {
-    let date = new Date();
-
-    return `${ date.getDate() }/${ date.getMonth() + 1 }/${ date.getFullYear() } ` +
-           `${ addZero(date.getHours()) }:${ addZero(date.getMinutes()) }:${ addZero(date.getSeconds()) }`;
-}
-
-module.exports.checkCookieForLogin = function (cookie) {
-    if (Object.entries(cookie).length === 0) {
+module.exports.checkCookieForLogin = function (c) {
+    if (Object.entries(c).length === 0) {
         return false;
     }
 
-    if(cookie['loggedIn'] === sha256(cookie['username'] + SALT)) {
+    if(c['loggedIn'] === sha256(c['username'] + SALT)) {
         return true;
     } else {
         return false;
     }
 }
 
-module.exports.calculateAge = function (birthday) {
-    return new Date().getFullYear() - new Date(birthday).getFullYear();
+module.exports.hash = function (str) {
+    return sha256(str + SALT);
+}
+
+module.exports.getCurrentDateTime = function () {
+    return moment().format('YYYY MM DD, h:mm:ss');
+}
+
+module.exports.calculateAge = function (d) {
+    return new Date().getFullYear() - new Date(d).getFullYear();
 }

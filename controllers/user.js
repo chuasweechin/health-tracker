@@ -17,7 +17,7 @@ module.exports = function(db) {
 
     let authenticateRequestHandler = async function(request, response) {
         try {
-            let result = await db.users.authenticate(request.body.username, request.body.password);
+            let result = await db.users.authenticate(request.body);
 
             if (result.length === 1) {
                 response.cookie('username', result[0].username);
@@ -61,7 +61,7 @@ module.exports = function(db) {
 
     let createAccountRequestHandler = async function(request, response) {
         try {
-            let success = await db.users.createAccount(request.body.username, request.body.password);
+            let success = await db.users.createAccount(request.body);
 
             if (success === true) {
                 response.redirect('/login');

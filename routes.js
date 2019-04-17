@@ -1,6 +1,6 @@
 module.exports = function (app, allModels) {
-    const userController = require('./user')(allModels);
-    const activityController = require('./activity')(allModels);
+    const userController = require('./controllers/user')(allModels);
+    const activityController = require('./controllers/activity')(allModels);
 
     app.get('/', activityController.homeRequestHandler);
 
