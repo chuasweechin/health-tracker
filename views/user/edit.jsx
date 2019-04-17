@@ -1,13 +1,14 @@
-var React = require('react');
-var DefaultLayout = require('../layouts/userDefault');
+edit.jsxvar React = require("react");
+var HomeDefaultLayout = require('./layouts/homeDefault');
 
-class Register extends React.Component {
+class Home extends React.Component {
   render() {
     return (
-        <DefaultLayout title="Register Account" login="false">
+        <HomeDefaultLayout title="home" login="true">
+
             <form className="register" action="/register" method="POST">
                 <div className="container">
-                    <h1>Create Your Account</h1>
+                    <h1>Edit Your Account</h1>
 
                     <div className="row">
                         <div className="col-6">
@@ -31,28 +32,14 @@ class Register extends React.Component {
                         </div>
                     </div>
 
-                    <div className="row">
-                        <div className="col-6">
-                            Weight: <input type="number" className="form-control weight" name="kg" placeholder="kg"/>
-                        </div>
-                        <div className="col-6">
-                            Height: <input type="number" className="form-control weight" name="cm" placeholder="cm"/>
-                        </div>
-                    </div>
-
-                    <hr/>
-
-                    Username: <input type="text" className="form-control username" name="username"/>
-                    Password: <input type="password" className="form-control password" name="password"/>
-                    Confirm Password: <input type="password" className="form-control password"/>
-
-                    <input className="btn btn-primary" type="submit" value="Register New Account"/>
-                    <a href="/login">To Login Page</a>
+                    <input className="btn btn-primary" type="submit" value="Update Account"/>
                 </div>
             </form>
-        </DefaultLayout>
+
+
+        </HomeDefaultLayout>
     );
   }
 }
 
-module.exports = Register;
+module.exports = Home;

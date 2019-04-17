@@ -1,15 +1,11 @@
+const SALT = '9UYS*u7y^@hgs';
 const helper = require('../helper');
 const sha256 = require('js-sha256');
 
 module.exports = function(db) {
-
-    let hello = async function(request, response) {
-        response.render('home');
-    };
-
     let loginRequestHandler = async function(request, response) {
         try {
-            if (helper.checkCookiesForLogin(request.cookies) === false) {
+            if (helper.checkCookieForLogin(request.cookies) === false) {
                 response.render('user/login');
             } else {
                 response.redirect('/');
@@ -25,8 +21,12 @@ module.exports = function(db) {
 
             if (result.length === 1) {
                 response.cookie('username', result[0].username);
-                response.cookie('loggedIn', sha256(result[0].username));
-                response.cookie('img_url', result[0].img_url);
+                response.cookie('name', `${ result[0].last_name } ${ result[0].first_name }`);
+                response.cookie('gender', result[0].gender);
+                response.cookie('age', helper.calculateAge(result[0].birthday));
+                response.cookie('weight', result[0].weight_in_kg );
+                response.cookie('height', result[0].height_in_cm );
+                response.cookie('loggedIn', sha256(result[0].username + SALT));
 
                 response.redirect('/');
             } else {
@@ -38,10 +38,14 @@ module.exports = function(db) {
     };
 
     let logoutRequestHandler = function(request, response) {
-        if (helper.checkCookiesForLogin(request.cookies) === true) {
+        if (helper.checkCookieForLogin(request.cookies) === true) {
             response.clearCookie('username', request.cookies['username']);
+            response.clearCookie('name', request.cookies['name']);
+            response.clearCookie('gender', request.cookies['gender']);
+            response.clearCookie('age', request.cookies['age']);
+            response.clearCookie('weight', request.cookies['weight']);
+            response.clearCookie('height', request.cookies['height']);
             response.clearCookie('loggedIn', request.cookies['loggedIn']);
-            response.clearCookie('img_url', request.cookies['img_url']);
         }
 
         response.redirect('/login');
@@ -70,7 +74,6 @@ module.exports = function(db) {
     };
 
     return {
-        hello,
         loginRequestHandler,
         authenticateRequestHandler,
         logoutRequestHandler,

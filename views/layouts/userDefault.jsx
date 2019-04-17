@@ -1,28 +1,20 @@
 var React = require('react');
 
-class DefaultLayout extends React.Component {
+class UserDefaultLayout extends React.Component {
   render() {
-    let logoutElement;
-
-    if (this.props.login === "true") {
-        logoutElement = <div className="logout"><a href="/logout">Logout</a></div>;
-    } else {
-        logoutElement = <div className="logout"></div>;
-    }
-
     return (
             <html>
                 <head>
                     <title>{this.props.title}</title>
                     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossOrigin="anonymous"/>
+                    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet"/>
                     <link rel="stylesheet" href="/css/style.css"/>
                 </head>
 
                 <body>
-                    <div className="nav">
-                        <div className="logo">Fitness Tracker</div>
+                    <div className="header">
+                        <div className="logo">Fitness <span>Tracker</span></div>
                     </div>
-                    { logoutElement }
                     {this.props.children}
 
                     <script src="/js/script.js"></script>
@@ -32,4 +24,4 @@ class DefaultLayout extends React.Component {
   }
 }
 
-module.exports = DefaultLayout;
+module.exports = UserDefaultLayout;

@@ -1,3 +1,4 @@
+const SALT = '9UYS*u7y^@hgs';
 const sha256 = require('js-sha256');
 
 let addZero = function(n) {
@@ -15,14 +16,18 @@ module.exports.getCurrentDateAndTime = function() {
            `${ addZero(date.getHours()) }:${ addZero(date.getMinutes()) }:${ addZero(date.getSeconds()) }`;
 }
 
-module.exports.checkCookiesForLogin = function (cookies) {
-    if (Object.entries(cookies).length === 0) {
+module.exports.checkCookieForLogin = function (cookie) {
+    if (Object.entries(cookie).length === 0) {
         return false;
     }
 
-    if(cookies['loggedIn'] === sha256(cookies['username'])) {
+    if(cookie['loggedIn'] === sha256(cookie['username'] + SALT)) {
         return true;
     } else {
         return false;
     }
+}
+
+module.exports.calculateAge = function (birthday) {
+    return new Date().getFullYear() - new Date(birthday).getFullYear();
 }

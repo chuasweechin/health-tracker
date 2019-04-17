@@ -9,7 +9,8 @@ module.exports = function(dbPoolInstance) {
             const passwordHash = sha256(password + SALT);
 
             const values = [username, passwordHash];
-            const sqlQuery = `SELECT username, img_url FROM users
+            const sqlQuery = `SELECT username, last_name, first_name, gender, weight_in_kg, height_in_cm, birthday
+                              FROM user_account
                               WHERE username= $1 AND password= $2`;
 
             let result = await dbPoolInstance.query(sqlQuery, values);
@@ -25,8 +26,8 @@ module.exports = function(dbPoolInstance) {
         try {
             const passwordHash = sha256(password + SALT);
 
-            const values = [username, passwordHash, helper.getCurrentDateAndTime()];
-            const sqlQuery = `INSERT INTO users (username, password, created_at)
+            const values = [username, passwordHash, Date.now()];
+            const sqlQuery = `INSERT INTO user_account (username, password, created_at)
                               VALUES ($1, $2, $3) RETURNING *`;
 
             await dbPoolInstance.query(sqlQuery, values);

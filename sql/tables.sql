@@ -1,15 +1,12 @@
 CREATE TABLE IF NOT EXISTS user_account (
     username TEXT PRIMARY KEY,
     password TEXT,
-    created_at TIMESTAMP
-);
-
-CREATE TABLE IF NOT EXISTS user_stat (
-    id SERIAL PRIMARY KEY,
-    fk_user_account_username TEXT,
-    birth_date TIMESTAMP,
-    weight_in_gram INTEGER,
-    height_in_centimetre INTEGER,
+    first_name TEXT,
+    last_name TEXT,
+    gender TEXT,
+    birthday TIMESTAMP,
+    weight_in_kg decimal,
+    height_in_cm decimal,
     created_at TIMESTAMP,
     updated_at TIMESTAMP
 );
@@ -30,9 +27,9 @@ CREATE TABLE IF NOT EXISTS user_activity_log (
     fk_activity_id TEXT,
     activity_count INTEGER,
     duration_in_second INTEGER,
-    current_weight_in_gram INTEGER,
-    current_height_in_centimetre INTEGER,
-    kcal_burned INTEGER,
+    current_weight_in_kg decimal,
+    current_height_in_cm decimal,
+    kcal_burned decimal,
     created_at TIMESTAMP,
     updated_at TIMESTAMP
 );

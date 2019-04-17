@@ -23,7 +23,7 @@ if( process.env.DATABASE_URL ) {
     configs = {
         user: 'chuasweechin',
         host: '127.0.0.1',
-        database: 'tweedr',
+        database: 'health_db',
         port: 5432
     };
 }
@@ -40,6 +40,9 @@ pool.on('error', function (err) {
 const userModelsFunction = require('./models/user');
 const userModelsObject = userModelsFunction(pool);
 
+const activityModelsFunction = require('./models/activity');
+const activityModelsObject = activityModelsFunction(pool);
+
 /* ===================================================
  * ======             MODULE EXPORTS          ========
  * =================================================*/
@@ -49,5 +52,6 @@ module.exports = {
         return pool.query(text, params, callback);
     },
     pool: pool,
+    activities: activityModelsObject,
     users: userModelsObject
 };

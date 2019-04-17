@@ -1,42 +1,159 @@
-body {
-	width: 65%;
-	margin: auto;
-	text-align: center;
+html {
+	width: 85%;
+	height: 100%;
+	margin: 10px auto 0px auto;
 }
 
+body {
+	height: 100%;
+	background-color: #EEF0F2;
+	font-family: 'Lato', sans-serif;
+}
 
-/*=================
-   Site Nav Bar
- ================*/
-.nav {
-	height: 40px;
+/*===========
+   Site Main
+ ==========*/
+.main {
+	height: 100%;
 	display: flex;
-	background-color: #E7F2F6;
+	margin-top: 20px;
 	justify-content: space-between;
 }
 
-.nav > .logo {
-	margin-top: 6px;
-	margin-left: 15px;
+.main > .content {
+	width: 75%;
+	height: 80%;
+	border-radius: 8px;
+	margin-right: 20px;
+	background-color: #FFFFFF;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
-.nav > .logout {
-	margin-top: 6px;
-	margin-right: 15px;
+/*=================
+   Site Header Bar
+ ================*/
+.header {
+	height: 40px;
+	display: flex;
+	justify-content: space-between;
 }
 
+.header > .logo {
+	font-size: 28px;
+	margin-top: 6px;
+	margin-left: 28px;
+}
+
+.header > .logo > span {
+	font-weight: 700;
+}
+
+.header > .logout {
+	font-size: 20px;
+	margin-top: 15px;
+	margin-right: 20px;
+}
+
+/*===========
+   Site Nav
+ ==========*/
+.main > .nav {
+	width: 20%;
+	height: 80%;
+	margin-left: 25px;
+	border-radius: 8px;
+	background-color: #FFFFFF;
+	box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2);
+}
+
+/*==============
+   Profile
+ =============*/
+.profile {
+	width: 100%;
+}
+
+.profile > .sectionOne {
+	margin: 22px 0px 15px 0px;
+}
+
+.profile > .sectionOne > .image {
+	width: 80px;
+	height: 80px;
+	border-radius: 50px;
+}
+
+.profile > .sectionOne  > .name {
+	font-size: 20px;
+	text-transform: capitalize;
+}
+
+.profile > .sectionOne  > .age {
+	color: #AEAEAE;
+	font-size: 12px;
+	font-weight: 300;
+	text-transform: capitalize;
+}
+
+.profile > .sectionTwo {
+	border-top: 1px solid #F1F1F1;
+	border-bottom: 1px solid #F1F1F1;
+}
+
+.profile > .sectionTwo > .weight, .profile > .sectionTwo > .height {
+	text-align: center;
+	border-right: 1px solid #F1F1F1;
+	padding: 5px 0px 5px 0px;
+}
+
+.profile > .sectionTwo > .weight > .title, .profile > .sectionTwo > .height > .title {
+	color: #47D9FC;
+	font-size: 16px;
+	text-transform: uppercase;
+}
+
+.profile > .sectionTwo > .weight > .content, .profile > .sectionTwo > .height > .content {
+	font-size: 18px;
+}
+
+.profile > .sectionTwo > .weight > .content > span, .profile > .sectionTwo > .height > .content > span {
+	color: #AEAEAE;
+	font-size: 12px;
+}
+
+/*==============
+   Menu
+ =============*/
+.menu {
+	height: 57%;
+}
+
+.menu > div {
+	font-size: 16px;
+	font-weight: 600;
+	margin: 18px 0px 0px 25px;
+}
+
+.menu > div > a {
+	color: #686868;
+	text-decoration: none;
+}
+
+.menu > div > a:hover {
+	color: #FF597E;
+}
 
 /*==============
    Login Page
  =============*/
 .login {
-	margin-top: 150px;
+	margin: 120px 0px 0px 25px;
 }
 
 .login > .username, .login > .password {
 	width: 30%;
 	height: 45px;
-	margin: 0px auto 5px auto;
+	margin: 0px 0px 5px 0px;
 }
 
 .login > .btn {
@@ -50,27 +167,67 @@ body {
 	margin-top: 15px;
 }
 
-
 /*=================
    Register Page
  ================*/
 .register {
-	margin-top: 150px;
+	width: 35%;
+	margin: 20px auto 0px auto;
 }
 
-.register > .username, .register > .password {
-	width: 30%;
+.register > .container > h1 {
+	text-align: center;
+}
+
+.register > .container > .row > .col-6 > .firstname, .register > .container > .row > .col-6 > .lastname {
+	width: 100%;
 	height: 45px;
-	margin: 0px auto 5px auto;
+	margin: 0px 0px 5px 0px;
 }
 
-.register > .btn {
-	width: 30%;
+.register > .container > .row > .col-6 > .gender, .register > .container > .row > .col-6 >  .birthday{
+	width: 100%;
+	height: 45px;
+	margin: 0px 0px 5px 0px;
+}
+
+.register > .container > .row > .col-6 > .weight, .register > .container > .row > .col-6 > .height{
+	width: 100%;
+	height: 45px;
+	margin: 0px 0px 5px 0px;
+}
+
+.register > .container > .username, .register > .container > .password {
+	width: 100%;
+	height: 45px;
+	margin: 0px 0px 8px 0px;
+}
+
+.register > .container > .btn {
+	margin-left: 30%;
 	margin-top: 10px;
 }
 
-.register > a {
+.register > .container > a {
 	display: block;
 	font-size: 12px;
+	margin-left: 40%;
 	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+/*======================
+  Add Activity Log Page
+ =====================*/
+.addActivityLog {
+	width: 60%;
+	margin: 18px;
+}
+
+.addActivityLog > .container > .row > .col-12 {
+	margin-top: 18px;
+}
+
+.addActivityLog > .container > .row > .calories{
+	font-size: 26px;
 }
