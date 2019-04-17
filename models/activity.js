@@ -9,7 +9,7 @@ module.exports = function(dbPoolInstance) {
             return result.rows;
 
         } catch(e) {
-            console.log('activity model: ' + e);
+            console.log('getAllActivites model: ' + e);
         }
     };
 
@@ -25,7 +25,7 @@ module.exports = function(dbPoolInstance) {
             return result.rows;
 
         } catch(e) {
-            console.log('activity model: ' + e);
+            console.log('getActivityLog model: ' + e);
         }
     };
 
@@ -43,7 +43,7 @@ module.exports = function(dbPoolInstance) {
             return result.rows;
 
         } catch(e) {
-            console.log('activity model: ' + e);
+            console.log('createActivityLog model: ' + e);
         }
     };
 

@@ -20,7 +20,7 @@ module.exports = function(dbPoolInstance) {
         }
     };
 
-    let createAccount = async function(input) {
+    let createUserAccount = async function(input) {
         try {
             const passwordHash = helper.hash(input.password)
             const values = [input.username, passwordHash, input.firstname, input.lastname,
@@ -40,8 +40,26 @@ module.exports = function(dbPoolInstance) {
         }
     };
 
+    let updateUserWeight = async function(input) {
+        try {
+            const values = [input.weight, helper.getCurrentDateTime(), input.username];
+
+            const sqlQuery = `UPDATE user_account
+                              SET weight_in_kg = $1, updated_at = $2
+                              WHERE username= $3`;
+
+            let result = await dbPoolInstance.query(sqlQuery, values);
+
+            return result.rows;
+
+        } catch(e) {
+            console.log('updateWeight model: ' + e);
+        }
+    };
+
   return {
     authenticate,
-    createAccount
+    createUserAccount,
+    updateUserWeight
   };
 };

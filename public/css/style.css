@@ -175,7 +175,7 @@ body {
 	margin: 0px auto 0px auto;
 }
 
-.register > .container > h1 {
+.register > .container > h2 {
 	text-align: center;
 }
 
@@ -217,23 +217,11 @@ body {
 }
 
 /*======================
-  Activity Log Page
- =====================*/
-.activityLog {
-	padding: 20px 50px 0px 50px;
-}
-
-.activityLog > h1 {
-	margin-bottom: 10px;
-}
-
-
-/*======================
   Add Activity Log Page
  =====================*/
 .addActivityLog {
 	width: 100%;
-	margin: 20px 0px 0px 50px;
+	padding: 20px 0px 0px 35px;
 }
 
 .addActivityLog > .container > .row > .col-8 {
@@ -248,6 +236,46 @@ body {
 	text-transform: capitalize;
 }
 
-.addActivityLog > input {
+.addActivityLog > .btn {
 	margin: 20px 0px 0px 15px;
+}
+
+/*======================
+  Add Weight Page
+ =====================*/
+.addWeight {
+	width: 100%;
+	padding: 20px 50px 0px 35px;
+}
+
+.addWeight > .container > .row > .col-8 {
+	margin-top: 18px;
+}
+
+.addWeight > .btn {
+	margin: 20px 0px 0px 15px;
+}
+
+/*======================
+  Activity Log Page
+ =====================*/
+.weightLog {
+	font-size: 15px;
+	padding: 20px 50px 0px 50px;
+}
+
+.weightLog > h2 {
+	margin-bottom: 10px;
+}
+
+/*======================
+  Activity Log Page
+ =====================*/
+.activityLog {
+	font-size: 15px;
+	padding: 20px 50px 0px 50px;
+}
+
+.activityLog > h2 {
+	margin-bottom: 10px;
 }

@@ -11,13 +11,13 @@ module.exports = function(db) {
                 response.redirect('/');
             }
         } catch(e) {
-            console.log('user controller ' + e);
+            console.log('loginRequestHandler controller ' + e);
         }
     };
 
     let authenticateRequestHandler = async function(request, response) {
         try {
-            let result = await db.users.authenticate(request.body);
+            let result = await db.user.authenticate(request.body);
 
             if (result.length === 1) {
                 response.cookie('username', result[0].username);
@@ -33,7 +33,7 @@ module.exports = function(db) {
                 response.send('Login Failure');
             }
         } catch(e) {
-            console.log('user controller ' + e);
+            console.log('authenticateRequestHandler controller ' + e);
         }
     };
 
@@ -55,21 +55,25 @@ module.exports = function(db) {
         try {
             response.render('user/register');
         } catch(e) {
-            console.log('user controller ' + e);
+            console.log('logoutRequestHandler controller ' + e);
         }
     };
 
     let createAccountRequestHandler = async function(request, response) {
         try {
-            let success = await db.users.createAccount(request.body);
+            let success = await db.user.createUserAccount(request.body);
 
             if (success === true) {
+
+                // update weight log when account is initially created
+                await db.weight.addWeight(request.body);
+
                 response.redirect('/login');
             } else {
                 response.send('Username already exist!');
             }
         } catch(e) {
-            console.log('user controller ' + e);
+            console.log('createAccountRequestHandler controller ' + e);
         }
     };
 

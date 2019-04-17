@@ -7,7 +7,7 @@ class Register extends React.Component {
         <DefaultLayout title="Register Account" login="false">
             <form className="register" action="/register" method="POST">
                 <div className="container">
-                    <h1>Create Your Account</h1>
+                    <h2>Create Your Account</h2>
 
                     <div className="row">
                         <div className="col-6">

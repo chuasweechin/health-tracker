@@ -6,7 +6,7 @@ class Login extends React.Component {
     return (
         <DefaultLayout title="Login" login="false">
             <form className="login" action="/login" method="POST">
-                <h1>Login</h1>
+                <h2>Login</h2>
                 <input type="text" className="form-control username" name="username" placeholder="Username"/>
                 <input type="password" className="form-control password" name="password" placeholder="Password"/>
                 <input className="btn btn-primary" type="submit" value="Sign In"/>

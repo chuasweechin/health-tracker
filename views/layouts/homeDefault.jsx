@@ -48,8 +48,9 @@ class HomeDefaultLayout extends React.Component {
 
                             <div className="menu">
                                 <div><a href="/">Home</a></div>
-                                <div><a href="/activity_log/new">Log New Activity</a></div>
-                                <div><a href="#">Edit Profile</a></div>
+                                <div><a href="/stats">Statistics</a></div>
+                                <div><a href="/weight_log/new">Update Your Weight Log</a></div>
+                                <div><a href="/activity_log/new">Update Your Activity Log</a></div>
                             </div>
                         </div>
 
@@ -57,9 +58,6 @@ class HomeDefaultLayout extends React.Component {
                             {this.props.children}
                         </div>
                     </div>
-
-                    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
-                    <script src="/js/script.js"></script>
                 </body>
             </html>
     );

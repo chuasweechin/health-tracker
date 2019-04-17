@@ -21,6 +21,13 @@ CREATE TABLE IF NOT EXISTS activity (
     kcal_per_kg_second decimal
 );
 
+CREATE TABLE IF NOT EXISTS user_weight_log (
+    id SERIAL PRIMARY KEY,
+    fk_user_account_username TEXT,
+		weight_in_kg decimal,
+		created_at TIMESTAMP
+);
+
 CREATE TABLE IF NOT EXISTS user_activity_log (
     id SERIAL PRIMARY KEY,
     fk_user_account_username TEXT,

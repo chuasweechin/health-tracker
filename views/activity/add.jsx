@@ -21,7 +21,7 @@ class AddActivity extends React.Component {
         <HomeDefaultLayout title="home" login="true" data= { this.props }>
             <form className="addActivityLog" action="/activity_log" method="POST">
                  <div className="container">
-                    <h1>Add New Activity Log</h1>
+                    <h2>Add New Activity Log</h2>
 
                     <div className="row">
                         <div className="col-8">
@@ -43,8 +43,10 @@ class AddActivity extends React.Component {
                     </div>
                 </div>
                 <input type="hidden" className= "selected_calories" name="calories_burnt"/>
-                <input className="btn btn-primary" type="submit" value="Log Activity"/>
+                <input className="btn btn-primary" type="submit" value="Update Your Activity Log"/>
             </form>
+
+            <script src="/js/addActivityScript.js"></script>
         </HomeDefaultLayout>
     );
   }

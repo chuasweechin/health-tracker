@@ -16,8 +16,6 @@ class UserDefaultLayout extends React.Component {
                         <div className="logo">Fitness <span>Tracker</span></div>
                     </div>
                     {this.props.children}
-
-                    <script src="/js/script.js"></script>
                 </body>
             </html>
     );

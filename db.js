@@ -43,6 +43,9 @@ const userModelsObject = userModelsFunction(pool);
 const activityModelsFunction = require('./models/activity');
 const activityModelsObject = activityModelsFunction(pool);
 
+const weightModelsFunction = require('./models/weight');
+const weightModelsObject = weightModelsFunction(pool);
+
 /* ===================================================
  * ======             MODULE EXPORTS          ========
  * =================================================*/
@@ -52,6 +55,7 @@ module.exports = {
         return pool.query(text, params, callback);
     },
     pool: pool,
-    activities: activityModelsObject,
-    users: userModelsObject
+    weight: weightModelsObject,
+    activity: activityModelsObject,
+    user: userModelsObject
 };

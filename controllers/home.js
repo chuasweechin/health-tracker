@@ -5,22 +5,51 @@ module.exports = function(db) {
         if (helper.checkCookieForLogin(request.cookies) === false) {
             response.render('user/login');
         } else {
-            let result = await db.activities.getActivityLog(request.cookies['username']);
+            try {
+                let activityResult = await db.activity.getActivityLog(request.cookies['username']);
+                let weightResult = await db.weight.getAllWeight(request.cookies['username']);
 
-            let data = {
-                'name': request.cookies['name'],
-                'gender': request.cookies['gender'],
-                'age': request.cookies['age'],
-                'weight': request.cookies['weight'],
-                'height': request.cookies['height'],
-                'activities': result
+                let data = {
+                    'name': request.cookies['name'],
+                    'gender': request.cookies['gender'],
+                    'age': request.cookies['age'],
+                    'weight': request.cookies['weight'],
+                    'height': request.cookies['height'],
+                    'activities': activityResult,
+                    'weights': weightResult
+                }
+
+                response.render('home', data);
+
+            } catch (e) {
+                console.log("homeRequestHandler controller:" + e);
             }
+        }
+    };
 
-            response.render('home', data);
+    let statsRequestHandler = async function(request, response) {
+        if (helper.checkCookieForLogin(request.cookies) === false) {
+            response.render('user/login');
+        } else {
+            try {
+                let data = {
+                    'name': request.cookies['name'],
+                    'gender': request.cookies['gender'],
+                    'age': request.cookies['age'],
+                    'weight': request.cookies['weight'],
+                    'height': request.cookies['height']
+                }
+
+                response.render('statistics', data);
+
+            } catch (e) {
+                console.log("homeRequestHandler controller:" + e);
+            }
         }
     };
 
     return {
-        homeRequestHandler
+        homeRequestHandler,
+        statsRequestHandler
     };
 }

@@ -1,5 +1,8 @@
 INSERT INTO user_account (username, password, first_name, last_name, gender, birthday, weight_in_kg, height_in_cm, created_at)
-VALUES ('demo', '5982616cb6d9b51226d04a28952801d1bab0b24fefa95e75dd6c0b5a80dd9e3d', 'swee chin', 'chua', 'male', '1986-06-21 00:00:00', '60', '174', '17 April 2019, 10:16:48 am');
+VALUES ('demo', '5982616cb6d9b51226d04a28952801d1bab0b24fefa95e75dd6c0b5a80dd9e3d', 'swee chin', 'chua', 'male', '1986-06-21 00:00:00', 60, 174, '2019-04-17 10:16:48');
+
+INSERT INTO user_weight_log (fk_user_account_username, weight_in_kg, created_at)
+VALUES ('demo', 60, '2019-04-17 10:16:48');
 
 INSERT INTO activity (name, type, compendium_code, kcal_per_kg_hour, kcal_per_kg_minute, kcal_per_kg_second)
 VALUES ('push-up (vigorous effort)', 'calisthenics', '02020', 8.0, 0.132, 0.0022);
