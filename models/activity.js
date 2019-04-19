@@ -15,10 +15,11 @@ module.exports = function(dbPoolInstance) {
 
     let getActivityLog = async function(input) {
         try {
-            const values = [input];
-            const sqlQuery = `SELECT ual.*, a.name FROM user_activity_log ual
+            const values = [input.username];
+            const sqlQuery = `SELECT ual.*, a.name, a.type FROM user_activity_log ual
                               INNER JOIN activity a ON (ual.fk_activity_id = a.id)
-                              WHERE ual.fk_user_account_username = $1`;
+                              WHERE ual.fk_user_account_username = $1
+                              ORDER BY created_at DESC`;
 
             let result = await dbPoolInstance.query(sqlQuery, values);
 
@@ -32,7 +33,7 @@ module.exports = function(dbPoolInstance) {
     let createActivityLog = async function(input) {
         try {
             const values = [input.username, input.activity_id, input.count, input.duration,
-                                input.weight, input.height, input.calories_burnt, helper.getCurrentDateTime()];
+                                input.current_weight, input.current_height, input.calories_burnt, helper.getCurrentDateTime()];
 
             const sqlQuery = `INSERT INTO user_activity_log
                               (fk_user_account_username, fk_activity_id, activity_count, duration_in_second, current_weight_in_kg, current_height_in_cm, kcal_burnt, created_at)

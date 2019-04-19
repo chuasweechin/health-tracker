@@ -1,13 +1,14 @@
 const SALT = '9UYS*u7y^@hgs';
+const _ = require('lodash');
 const moment = require('moment');
 const sha256 = require('js-sha256');
 
-module.exports.checkCookieForLogin = function (c) {
-    if (Object.entries(c).length === 0) {
+module.exports.checkCookieForLogin = function (cookie) {
+    if (Object.entries(cookie).length === 0) {
         return false;
     }
 
-    if(c['loggedIn'] === sha256(c['username'] + SALT)) {
+    if(cookie['loggedIn'] === sha256(cookie['username'] + SALT)) {
         return true;
     } else {
         return false;
@@ -19,7 +20,7 @@ module.exports.hash = function (str) {
 }
 
 module.exports.formatDateTime = function (date) {
-    return moment(date).format('Do MMM YYYY, h:mm:ss a');
+    return moment(date).format('DD MMM YYYY, h:mm:ss a');
 }
 
 module.exports.getCurrentDateTime = function () {
@@ -31,16 +32,18 @@ module.exports.calculateAge = function (date) {
 }
 
 module.exports.processDataForChart = function (dataset, xLabel, yLabel) {
-    let y = [];
     let x = [];
+    let y = [];
+
+    dataset = _.sortBy(dataset, [xLabel]);
 
     dataset.forEach((item) => {
-        x.push(Number(item[xLabel]));
-        y.push(moment(item[yLabel]).format('YYYY-MM-DD'));
-    })
+        x.push(moment(item[xLabel]).format('YYYY-MM-DD'));
+        y.push(Number(item[yLabel]));
+    });
 
     return {
-        yAxis: x,
-        xAxis: y
+        yAxis: y,
+        xAxis: x
     }
 }

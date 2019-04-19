@@ -5,7 +5,6 @@ html {
 }
 
 body {
-	height: 100%;
 	background-color: #EEF0F2;
 	font-family: 'Lato', sans-serif;
 }
@@ -14,7 +13,6 @@ body {
    Site Main
  ==========*/
 .main {
-	height: 100%;
 	display: flex;
 	margin-top: 20px;
 	justify-content: space-between;
@@ -22,7 +20,7 @@ body {
 
 .main > .content {
 	width: 75%;
-	height: 80%;
+	min-height: 500px;
 	border-radius: 8px;
 	margin-right: 20px;
 	background-color: #FFFFFF;
@@ -33,7 +31,7 @@ body {
    Site Header Bar
  ================*/
 .header {
-	height: 40px;
+	min-height: 40px;
 	display: flex;
 	justify-content: space-between;
 }
@@ -59,20 +57,19 @@ body {
  ==========*/
 .main > .nav {
 	width: 20%;
-	height: 550px;
+	display: flex;
+	min-height: 550px;
 	margin-left: 25px;
 	border-radius: 8px;
+	flex-direction: column;
 	background-color: #FFFFFF;
+	justify-content: flex-start;
 	box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2);
 }
 
 /*==============
-   Profile
+   Nav Profile
  =============*/
-.profile {
-	width: 100%;
-}
-
 .profile > .sectionOne {
 	margin: 22px 0px 15px 0px;
 }
@@ -83,7 +80,7 @@ body {
 	border-radius: 50px;
 }
 
-.profile > .sectionOne  > .name {
+.profile > .sectionOne > .name {
 	font-size: 20px;
 	text-transform: capitalize;
 }
@@ -122,12 +119,8 @@ body {
 }
 
 /*==============
-   Menu
+   Nav Menu
  =============*/
-.menu {
-	height: 57%;
-}
-
 .menu > div {
 	font-size: 16px;
 	font-weight: 600;
@@ -229,11 +222,25 @@ body {
 }
 
 .addActivityLog > .container > .row > .calories{
-	font-size: 26px;
+	font-size: 30px;
 }
 
 .addActivityLog > .container > .row > .col-8 > .activity {
-	text-transform: capitalize;
+	width: 60%;
+	margin-top: 6px;
+}
+
+.addActivityLog > .container > .row > .distance {
+	display: none;
+}
+
+.addActivityLog > .container > .row > .duration {
+	display: none;
+}
+
+.addActivityLog > .container > .row > .col-8 > input {
+	width: 60%;
+	margin-top: 6px;
 }
 
 .addActivityLog > .btn {
@@ -241,31 +248,38 @@ body {
 }
 
 /*======================
-  Add Weight Page
- =====================*/
-.addWeight {
-	width: 100%;
-	padding: 20px 50px 0px 35px;
-}
-
-.addWeight > .container > .row > .col-8 {
-	margin-top: 18px;
-}
-
-.addWeight > .btn {
-	margin: 20px 0px 0px 15px;
-}
-
-/*======================
-  Activity Log Page
+  Weight Log Page
  =====================*/
 .weightLog {
 	font-size: 15px;
 	padding: 20px 50px 0px 50px;
 }
 
-.weightLog > h2 {
-	margin-bottom: 10px;
+.weightLog > .title {
+	display: flex;
+	margin-bottom: 15px;
+	justify-content: space-between;
+}
+
+.weightLog > .title > button {
+	height: 40px;
+}
+
+.weightLog > table > thead > tr > .date {
+	width: 28%;
+}
+
+.weightLog > table > thead > tr > .weight {
+	width: 28%;
+}
+
+.weightLog > table > tbody > tr > td > form {
+	display: inline;
+	margin-right: 5px;
+}
+
+.weightLog > .table > tbody > tr > td > form > .add-new-weight-cancel {
+	margin-left: 5px;
 }
 
 /*======================
@@ -277,7 +291,15 @@ body {
 }
 
 .activityLog > h2 {
-	margin-bottom: 10px;
+	margin-bottom: 20px;
+}
+
+.activityLog > table > thead > tr > .date {
+	width: 28%;
+}
+
+.activityLog > table > tbody > tr > td > a > .btn {
+	margin-right: 5px;
 }
 
 /*======================
@@ -289,5 +311,5 @@ body {
 }
 
 .stats > h2 {
-	margin-bottom: 10px;
+	margin-bottom: 15px;
 }

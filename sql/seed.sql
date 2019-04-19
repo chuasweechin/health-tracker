@@ -49,8 +49,9 @@ VALUES ('lunges (light effort)', 'calisthenics', '02024', 2.8, 0.047, 0.0008);
 INSERT INTO activity (name, type, compendium_code, kcal_per_kg_hour, kcal_per_kg_minute, kcal_per_kg_second)
 VALUES ('abdominal crunches', 'calisthenics', '02024', 2.8, 0.047, 0.0008);
 
+
 INSERT INTO activity (name, type, compendium_code, kcal_per_kg_hour, kcal_per_kg_minute, kcal_per_kg_second)
-VALUES ('walking up & down from floor', 'calisthenics', '02030', 3.5, 0.058, 0.0009);
+VALUES ('walking up & down from floor', 'walking', '02030', 3.5, 0.058, 0.0009);
 
 INSERT INTO activity (name, type, compendium_code, kcal_per_kg_hour, kcal_per_kg_minute, kcal_per_kg_second)
 VALUES ('walking', 'walking', '17161', 2.5, 0.042, 0.0007);
@@ -142,3 +143,25 @@ VALUES ('watching a movie', 'inactivity', '07020', 1.3, 0.022, 0.0004);
 
 INSERT INTO activity (name, type, compendium_code, kcal_per_kg_hour, kcal_per_kg_minute, kcal_per_kg_second)
 VALUES ('standing', 'inactivity', '07040', 1.3, 0.022, 0.0004);
+
+
+INSERT INTO user_weight_log (fk_user_account_username, weight_in_kg, created_at )
+VALUES ('demo', 100, '2019-04-16 10:16:48');
+
+INSERT INTO user_weight_log (fk_user_account_username, weight_in_kg, created_at )
+VALUES ('demo', 58, '2019-04-18 10:16:48');
+
+INSERT INTO user_weight_log (fk_user_account_username, weight_in_kg, created_at )
+VALUES ('demo', 58, '2019-04-19 10:16:48');
+
+INSERT INTO user_weight_log (fk_user_account_username, weight_in_kg, created_at )
+VALUES ('demo', 58, '2019-04-20 10:16:48');
+
+INSERT INTO user_weight_log (fk_user_account_username, weight_in_kg, created_at )
+VALUES ('demo', 58, '2019-04-30 10:16:48');
+
+INSERT INTO user_weight_log (fk_user_account_username, weight_in_kg, created_at )
+VALUES ('demo', 58, '2019-05-01 10:16:48');
+
+INSERT INTO user_weight_log (fk_user_account_username, weight_in_kg, created_at )
+VALUES ('demo', 55, '2019-05-02 10:16:48');

@@ -1,7 +1,6 @@
 let ctx = document.getElementById('myChart').getContext('2d');
-
 let weightDataset = JSON.parse(getCookie('weightLog'));
-console.log(weightDataset);
+
 let chart = new Chart(ctx, {
     type: 'line',
     data: {
@@ -14,6 +13,13 @@ let chart = new Chart(ctx, {
     },
     options: {
         scales: {
+            xAxes: [{
+                ticks: {
+                    callback: function(value, index, values) {
+                        return moment(value).format("DD-MM-YYYY");
+                    }
+                }
+            }],
             yAxes: [{
                 ticks: {
                     beginAtZero: true,

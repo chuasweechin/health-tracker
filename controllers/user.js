@@ -24,8 +24,8 @@ module.exports = function(db) {
                 response.cookie('name', `${ result[0].last_name } ${ result[0].first_name }`);
                 response.cookie('gender', result[0].gender);
                 response.cookie('age', helper.calculateAge(result[0].birthday));
-                response.cookie('weight', result[0].weight_in_kg );
-                response.cookie('height', result[0].height_in_cm );
+                response.cookie('current_weight', result[0].weight_in_kg );
+                response.cookie('current_height', result[0].height_in_cm );
                 response.cookie('loggedIn', sha256(result[0].username + SALT));
 
                 response.redirect('/');
@@ -43,8 +43,9 @@ module.exports = function(db) {
             response.clearCookie('name', request.cookies['name']);
             response.clearCookie('gender', request.cookies['gender']);
             response.clearCookie('age', request.cookies['age']);
-            response.clearCookie('weight', request.cookies['weight']);
-            response.clearCookie('height', request.cookies['height']);
+            response.clearCookie('current_weight', request.cookies['current_weight']);
+            response.clearCookie('current_height', request.cookies['current_height']);
+            response.clearCookie('weightLog', request.cookies['weightLog']);
             response.clearCookie('loggedIn', request.cookies['loggedIn']);
         }
 
@@ -64,7 +65,6 @@ module.exports = function(db) {
             let success = await db.user.createUserAccount(request.body);
 
             if (success === true) {
-
                 // update weight log when account is initially created
                 await db.weight.addWeight(request.body);
 

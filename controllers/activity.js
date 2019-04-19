@@ -1,6 +1,30 @@
 const helper = require('../helper');
 
 module.exports = function(db) {
+    let getActivityLogRequestHandler = async function(request, response) {
+        if (helper.checkCookieForLogin(request.cookies) === false) {
+            response.render('user/login');
+        } else {
+            try {
+                let data = {
+                    'username': request.cookies['username'],
+                    'name': request.cookies['name'],
+                    'gender': request.cookies['gender'],
+                    'age': request.cookies['age'],
+                    'current_weight': request.cookies['current_weight'],
+                    'current_height': request.cookies['current_height'],
+                }
+
+                data.activities = await db.activity.getActivityLog(data);
+
+                response.render('activity_log/view', data);
+
+            } catch (e) {
+                console.log("newActivityLogRequestHandler controller:" + e);
+            }
+        }
+    };
+
     let newActivityLogRequestHandler = async function(request, response) {
         if (helper.checkCookieForLogin(request.cookies) === false) {
             response.render('user/login');
@@ -12,12 +36,12 @@ module.exports = function(db) {
                     'name': request.cookies['name'],
                     'gender': request.cookies['gender'],
                     'age': request.cookies['age'],
-                    'weight': request.cookies['weight'],
-                    'height': request.cookies['height'],
+                    'current_weight': request.cookies['current_weight'],
+                    'current_height': request.cookies['current_height'],
                     'activities': result
                 }
 
-                response.render('activity/add', data);
+                response.render('activity_log/add', data);
 
             } catch (e) {
                 console.log("newActivityLogRequestHandler controller:" + e);
@@ -35,12 +59,14 @@ module.exports = function(db) {
                     'count': request.body.count,
                     'duration': request.body.duration,
                     'calories_burnt': request.body.calories_burnt,
-                    'weight': request.cookies['weight'],
-                    'height': request.cookies['height'],
+                    'current_weight': request.cookies['current_weight'],
+                    'current_height': request.cookies['current_height'],
                     'username': request.cookies['username']
                 }
 
-                let result = await db.activity.createActivityLog(data);
+                console.log(request.body);
+
+                //let result = await db.activity.createActivityLog(data);
 
                 response.redirect('/');
             } catch (e) {
@@ -51,6 +77,7 @@ module.exports = function(db) {
     };
 
     return {
+        getActivityLogRequestHandler,
         newActivityLogRequestHandler,
         createActivityLogRequestHandler
     };

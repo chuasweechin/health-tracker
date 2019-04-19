@@ -4,7 +4,7 @@ const HomeDefaultLayout = require('../layouts/homeDefault');
 class Activities extends React.Component {
   render() {
     let elements = this.props.data.map( (item) => {
-        return <option value= { item.id } kcal= { item.kcal_per_kg_second }>{ item.name }</option>
+        return <option value = { item.id } kcal = { item.kcal_per_kg_second } type= { item.type }>{ item.name }</option>
     });
 
     return (
@@ -24,17 +24,24 @@ class AddActivity extends React.Component {
                     <h2>Add New Activity Log</h2>
 
                     <div className="row">
-                        <div className="col-8">
+                        <div className="col-8 activity">
                             Activity:
                             <Activities data={ this.props.activities }/>
                         </div>
 
-                        <div className="col-8">
-                            Count: <input type="number" className="form-control count" name="count"/>
+                        <div className="col-8 count">
+                            Count:
+                            <input type="number" className="form-control count" name="count"/>
                         </div>
 
-                        <div className="col-8">
-                            Duration (second): <input type="number" className="form-control duration" name="duration"/>
+                        <div className="col-8 distance">
+                            Distance Covered (in km):
+                            <input type="number" className="form-control distance" name="distance"/>
+                        </div>
+
+                        <div className="col-8 duration">
+                            Time Taken (in min):
+                            <input type="number" className="form-control duration" name="duration"/>
                         </div>
 
                         <div className="col-8 calories">
