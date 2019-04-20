@@ -15,7 +15,7 @@ class HomeDefaultLayout extends React.Component {
                 <head>
                     <title>{this.props.title}</title>
                     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossOrigin="anonymous"/>
-                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+                    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"/>
                     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet"/>
                     <link rel="stylesheet" href="/css/style.css"/>
                     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
@@ -51,10 +51,11 @@ class HomeDefaultLayout extends React.Component {
                             </div>
 
                             <div className="menu">
-                                <div><a href="/stats">Your Statistics</a></div>
-                                <div><a href="/weight_log">Your Weight Log</a></div>
-                                <div><a href="/activity_log">View Your Activity Log</a></div>
-                                <div><a href="/activity_log/new">Update Your Activity Log</a></div>
+                                <div><a href="/goal"><i class="fas fa-bullseye"></i>Set Target Weight</a></div>
+                                <div><a href="/stats"><i class="fas fa-chart-line"></i>Yours Statistics</a></div>
+                                <div><a href="/calorie_log"><i class="fas fa-utensils"></i>Your Calorie Intake</a></div>
+                                <div><a href="/weight_log"><i class="fas fa-weight"></i>Your Weight Log</a></div>
+
                             </div>
                         </div>
 

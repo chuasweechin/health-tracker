@@ -76,7 +76,7 @@ body {
 
 .profile > .sectionOne > .image {
 	width: 80px;
-	height: 80px;
+	height: 65px;
 	border-radius: 50px;
 }
 
@@ -124,7 +124,7 @@ body {
 .menu > div {
 	font-size: 16px;
 	font-weight: 600;
-	margin: 18px 0px 0px 25px;
+	margin: 18px 0px 0px 23px;
 }
 
 .menu > div > a {
@@ -134,6 +134,12 @@ body {
 
 .menu > div > a:hover {
 	color: #FF597E;
+}
+
+.menu > div > a > i {
+	font-size: 17px;
+	opacity: 0.8;
+	margin-right: 6px;
 }
 
 /*==============
@@ -210,6 +216,92 @@ body {
 }
 
 /*======================
+  Weight Log Page
+ =====================*/
+.weightLog {
+	font-size: 15px;
+	padding: 20px 50px 0px 50px;
+}
+
+.weightLog > .title {
+	display: flex;
+	margin-bottom: 15px;
+	justify-content: space-between;
+}
+
+.weightLog > .title > button {
+	height: 40px;
+}
+
+.weightLog > table > thead > tr > .date {
+	width: 26%;
+}
+
+.weightLog > table > thead > tr > .weight {
+	width: 15%;
+}
+
+.weightLog > table > thead > tr > .difference {
+	width: 18%;
+}
+
+.weightLog > table > thead > tr > .action {
+	width: 31%;
+}
+
+.weightLog > table > tbody > tr > .increase {
+	color: red;
+}
+
+.weightLog > table > tbody > tr > .decrease {
+	color: green;
+}
+
+.weightLog > table > tbody > tr > td > form {
+	display: inline;
+	margin-left: 5px;
+}
+
+.weightLog > .table > tbody > tr > td > form > .add-new-weight-cancel {
+	margin-left: 5px;
+}
+
+/*======================
+  Stats Page
+ =====================*/
+.stats {
+	font-size: 15px;
+	padding: 20px 50px 0px 50px;
+}
+
+.stats > h2 {
+	margin-bottom: 15px;
+}
+
+/*======================
+  Goal Page
+ =====================*/
+.addGoal {
+	font-size: 15px;
+	padding: 20px 50px 0px 35px;
+}
+
+.addGoal > h2 {
+	margin-bottom: 15px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*======================
   Add Activity Log Page
  =====================*/
 .addActivityLog {
@@ -248,41 +340,6 @@ body {
 }
 
 /*======================
-  Weight Log Page
- =====================*/
-.weightLog {
-	font-size: 15px;
-	padding: 20px 50px 0px 50px;
-}
-
-.weightLog > .title {
-	display: flex;
-	margin-bottom: 15px;
-	justify-content: space-between;
-}
-
-.weightLog > .title > button {
-	height: 40px;
-}
-
-.weightLog > table > thead > tr > .date {
-	width: 28%;
-}
-
-.weightLog > table > thead > tr > .weight {
-	width: 28%;
-}
-
-.weightLog > table > tbody > tr > td > form {
-	display: inline;
-	margin-right: 5px;
-}
-
-.weightLog > .table > tbody > tr > td > form > .add-new-weight-cancel {
-	margin-left: 5px;
-}
-
-/*======================
   Activity Log Page
  =====================*/
 .activityLog {
@@ -300,16 +357,4 @@ body {
 
 .activityLog > table > tbody > tr > td > a > .btn {
 	margin-right: 5px;
-}
-
-/*======================
-  Stats Page
- =====================*/
-.stats {
-	font-size: 15px;
-	padding: 20px 50px 0px 50px;
-}
-
-.stats > h2 {
-	margin-bottom: 15px;
 }

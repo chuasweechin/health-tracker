@@ -40,11 +40,11 @@ pool.on('error', function (err) {
 const userModelsFunction = require('./models/user');
 const userModelsObject = userModelsFunction(pool);
 
-const activityModelsFunction = require('./models/activity');
-const activityModelsObject = activityModelsFunction(pool);
-
 const weightModelsFunction = require('./models/weight');
 const weightModelsObject = weightModelsFunction(pool);
+
+const goalModelsFunction = require('./models/goal');
+const goalModelsObject = goalModelsFunction(pool);
 
 /* ===================================================
  * ======             MODULE EXPORTS          ========
@@ -56,6 +56,6 @@ module.exports = {
     },
     pool: pool,
     weight: weightModelsObject,
-    activity: activityModelsObject,
-    user: userModelsObject
+    user: userModelsObject,
+    goal: goalModelsObject
 };

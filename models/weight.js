@@ -50,14 +50,6 @@ module.exports = function(dbPoolInstance) {
         }
     };
 
-    let updateWeight = async function(input) {
-        try {
-
-        } catch(e) {
-            console.log('addWeight model: ' + e);
-        }
-    };
-
     let deleteWeight = async function(input) {
         try {
             const values = [input.username, input.weight_log_id];
@@ -76,7 +68,6 @@ module.exports = function(dbPoolInstance) {
     getAllWeight,
     getLatestWeight,
     addWeight,
-    updateWeight,
     deleteWeight
   };
 };

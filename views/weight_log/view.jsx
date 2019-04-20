@@ -10,41 +10,34 @@ class WeightLog extends React.Component {
     // user should minimum have 1 weight entry in his weight log
     if (this.props.data.length === 1) {
         elements = this.props.data.map( (item, index) => {
-            let editFormAttribute = `/weight_log?_method=PUT`;
 
             return  <tr>
-                        <td>
-                            { helper.formatDateTime(item.created_at) }
-                        </td>
-                        <td>
-                            { item.weight_in_kg } kg
-                        </td>
-                        <td>
-                            <form method="POST" action={ editFormAttribute }>
-                                <button className="btn btn-primary"><i className="fa fa-edit"></i></button>
-                            </form>
-                        </td>
+                        <td>{ helper.formatDateTime(item.created_at) }</td>
+                        <td>{ item.weight_in_kg } kg</td>
+                        <td> N.A.</td>
+                        <td></td>
                     </tr>
         });
+
     } else {
         elements = this.props.data.map( (item, index) => {
-            let editFormAttribute = `/weight_log?_method=PUT`;
+            let difference;
             let deleteFormAttribute = `/weight_log?_method=DELETE`;
 
+            if (index === this.props.data.length - 1) {
+                difference = 'N.A.';
+            } else {
+                difference = `${item.weight_in_kg - this.props.data[index + 1].weight_in_kg} kg`;
+            }
+
             return  <tr>
+                        <td>{ helper.formatDateTime(item.created_at) }</td>
+                        <td>{ item.weight_in_kg } kg</td>
+                        <td className="difference">{ difference }</td>
                         <td>
-                            { helper.formatDateTime(item.created_at) }
-                        </td>
-                        <td>
-                            { item.weight_in_kg } kg
-                        </td>
-                        <td>
-                            <form method="POST" action={ editFormAttribute }>
-                                <button className="btn btn-primary"><i className="fa fa-edit"></i></button>
-                            </form>
                             <form method="POST" action={ deleteFormAttribute }>
                                 <input type="hidden" name="weight_log_id" value= { item.id }/>
-                                <button className="btn btn-danger"><i className="fa fa-trash"></i></button>
+                                <button className="btn btn-danger"><i className="fas fa-trash-alt"></i></button>
                             </form>
                         </td>
                     </tr>
@@ -73,7 +66,8 @@ class Home extends React.Component {
                   <thead>
                     <tr>
                       <th className="date" scope="col">Date</th>
-                      <th className="weight" scope="col">Weight (in kg)</th>
+                      <th className="weight" scope="col">Weight</th>
+                      <th className="difference" scope="col">Weight Progress</th>
                       <th className="action" scope="col">Action</th>
                     </tr>
                   </thead>

@@ -7,7 +7,7 @@ module.exports = function(dbPoolInstance) {
             const passwordHash = helper.hash(input.password)
             const values = [input.username, passwordHash];
 
-            const sqlQuery = `SELECT username, last_name, first_name, gender, weight_in_kg, height_in_cm, birthday
+            const sqlQuery = `SELECT username, last_name, first_name, gender, target_weight, weight_in_kg, height_in_cm, birthday
                               FROM user_account
                               WHERE username= $1 AND password= $2`;
 

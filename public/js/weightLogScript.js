@@ -15,7 +15,7 @@ let weightInputEventHandler = function () {
     }
 }
 
-let addNewWeightEntryEventHandler = function () {
+let addWeightEntryEventHandler = function () {
     document.querySelector('.weightLog > .title > button').disabled = true;
     let parent = document.querySelector('.weightLog > .table > tbody');
 
@@ -39,9 +39,11 @@ let addNewWeightEntryEventHandler = function () {
     inputElement.addEventListener('keyup', weightInputEventHandler);
     cellElement_Two.appendChild(inputElement);
 
-
     // handling for cell three
     let cellElement_Three = document.createElement('td');
+
+    // handling for cell four
+    let cellElement_Four = document.createElement('td');
     let hiddenInputElement = document.createElement('input');
     hiddenInputElement.type = "hidden";
     hiddenInputElement.name="weight";
@@ -63,13 +65,25 @@ let addNewWeightEntryEventHandler = function () {
     formElement.appendChild(hiddenInputElement);
     formElement.appendChild(submitButtonElement);
     formElement.appendChild(cancelButtonElement);
-    cellElement_Three.appendChild(formElement);
+    cellElement_Four.appendChild(formElement);
 
     rowElement.appendChild(cellElement_One);
     rowElement.appendChild(cellElement_Two);
     rowElement.appendChild(cellElement_Three);
+    rowElement.appendChild(cellElement_Four);
 
     parent.insertBefore(rowElement, parent.childNodes[0]);
 }
 
-document.querySelector('.weightLog > .title > button').addEventListener('click', addNewWeightEntryEventHandler);
+window.onload = function() {
+    document.querySelector('.weightLog > .title > button').addEventListener('click', addWeightEntryEventHandler);
+
+    document.querySelectorAll('.weightLog > table > tbody > tr > .difference').forEach((element) => {
+        if (Number(element.innerHTML.split(" ")[0]) > 0 ) {
+            element.className = "increase";
+        } else if (Number(element.innerHTML.split(" ")[0]) < 0 ){
+            element.className = "decrease";
+        }
+    });
+
+};
