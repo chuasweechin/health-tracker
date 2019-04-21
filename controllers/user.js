@@ -20,14 +20,16 @@ module.exports = function(db) {
             let result = await db.user.authenticate(request.body);
 
             if (result.length === 1) {
-                response.cookie('username', result[0].username);
                 response.cookie('name', `${ result[0].last_name } ${ result[0].first_name }`);
                 response.cookie('gender', result[0].gender);
                 response.cookie('age', helper.calculateAge(result[0].birthday));
                 response.cookie('current_weight', result[0].weight_in_kg );
                 response.cookie('current_height', result[0].height_in_cm );
                 response.cookie('target_weight', result[0].target_weight );
+                response.cookie('username', result[0].username);
                 response.cookie('loggedIn', sha256(result[0].username + SALT));
+                response.cookie('username', result[0].username);
+                response.cookie('dailyCalorieNeeds', result[0].weight_in_kg * 0.9 * 24 * 1 * 1.3);
 
                 response.redirect('/');
             } else {

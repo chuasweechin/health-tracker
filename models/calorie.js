@@ -1,0 +1,54 @@
+const helper = require('../helper');
+
+module.exports = function(dbPoolInstance) {
+    let getAllCalorieIntake = async function(input) {
+        try {
+            const values = [input.username];
+            const sqlQuery = `SELECT * FROM user_calorie_intake
+                              WHERE fk_user_account_username = $1
+                              ORDER BY created_at DESC`;
+
+            let result = await dbPoolInstance.query(sqlQuery, values);
+
+            return result.rows;
+
+        } catch(e) {
+            console.log('getAllCalorieIntake model: ' + e);
+        }
+    };
+
+    let addCalorieIntake = async function(input) {
+        try {
+            const values = [input.username, input.weight, helper.getCurrentDateTime()];
+
+            const sqlQuery = `INSERT INTO user_calorie_intake
+                              (fk_user_account_username, calorie, created_at)
+                              VALUES ($1, $2, $3)`;
+
+            await dbPoolInstance.query(sqlQuery, values);
+
+        } catch(e) {
+            console.log('addCalorieIntake model: ' + e);
+        }
+    };
+
+    let deleteCalorieIntake = async function(input) {
+        try {
+            const values = [input.username, input.calorie_intake_id];
+
+            const sqlQuery = `DELETE FROM user_calorie_intake
+                              WHERE fk_user_account_username = $1 AND id = $2`;
+
+            await dbPoolInstance.query(sqlQuery, values);
+
+        } catch(e) {
+            console.log('deleteCalorieIntake model: ' + e);
+        }
+    };
+
+  return {
+    getAllCalorieIntake,
+    addCalorieIntake,
+    deleteCalorieIntake
+  };
+};

@@ -3,7 +3,6 @@ const HomeDefaultLayout = require('../layouts/homeDefault');
 
 class AddGoal extends React.Component {
   render() {
-    let dailyCalorieNeeds = this.props.current_weight * 0.9 * 24 * 1 * 1.3;
 
     return (
         <HomeDefaultLayout title="Goal" login="true" data= { this.props }>
@@ -15,10 +14,6 @@ class AddGoal extends React.Component {
                         <div className="col-8 target">
                             Your Target Weight (in kg):
                             <input type="number" className="form-control target" name="target" value= {this.props.target_weight }/>
-                        </div>
-
-                        <div className="col-8 calories-require">
-                            Your Daily Calorie Needs: <label>{ dailyCalorieNeeds }</label>
                         </div>
                     </div>
 

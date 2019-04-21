@@ -290,71 +290,49 @@ body {
 	margin-bottom: 15px;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-/*======================
-  Add Activity Log Page
- =====================*/
-.addActivityLog {
-	width: 100%;
-	padding: 20px 0px 0px 35px;
-}
-
-.addActivityLog > .container > .row > .col-8 {
-	margin-top: 18px;
-}
-
-.addActivityLog > .container > .row > .calories{
-	font-size: 30px;
-}
-
-.addActivityLog > .container > .row > .col-8 > .activity {
-	width: 60%;
-	margin-top: 6px;
-}
-
-.addActivityLog > .container > .row > .distance {
-	display: none;
-}
-
-.addActivityLog > .container > .row > .duration {
-	display: none;
-}
-
-.addActivityLog > .container > .row > .col-8 > input {
-	width: 60%;
-	margin-top: 6px;
-}
-
-.addActivityLog > .btn {
-	margin: 20px 0px 0px 15px;
+.addGoal > .container > input {
+	margin-top: 15px;
 }
 
 /*======================
-  Activity Log Page
+  Calorie Page
  =====================*/
-.activityLog {
+.calorieIntake {
 	font-size: 15px;
 	padding: 20px 50px 0px 50px;
 }
 
-.activityLog > h2 {
-	margin-bottom: 20px;
+.calorieIntake > .title {
+	display: flex;
+	margin-bottom: 15px;
+	justify-content: space-between;
 }
 
-.activityLog > table > thead > tr > .date {
-	width: 28%;
+.calorieIntake > .title > button {
+	height: 40px;
 }
 
-.activityLog > table > tbody > tr > td > a > .btn {
-	margin-right: 5px;
+.calorieIntake > table > thead > tr > .date {
+	width: 26%;
+}
+
+.calorieIntake > table > thead > tr > .calorie {
+	width: 15%;
+}
+
+.calorieIntake > table > thead > tr > .remark {
+	width: 18%;
+}
+
+.calorieIntake > table > thead > tr > .action {
+	width: 31%;
+}
+
+.calorieIntake > table > tbody > tr > td > form {
+	display: inline;
+	margin-left: 5px;
+}
+
+.calorieIntake > .table > tbody > tr > td > form > .add-new-weight-cancel {
+	margin-left: 5px;
 }

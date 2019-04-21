@@ -46,6 +46,9 @@ const weightModelsObject = weightModelsFunction(pool);
 const goalModelsFunction = require('./models/goal');
 const goalModelsObject = goalModelsFunction(pool);
 
+const calorieModelsFunction = require('./models/calorie');
+const calorieModelsObject = calorieModelsFunction(pool);
+
 /* ===================================================
  * ======             MODULE EXPORTS          ========
  * =================================================*/
@@ -57,5 +60,6 @@ module.exports = {
     pool: pool,
     weight: weightModelsObject,
     user: userModelsObject,
-    goal: goalModelsObject
+    goal: goalModelsObject,
+    calorie: calorieModelsObject
 };

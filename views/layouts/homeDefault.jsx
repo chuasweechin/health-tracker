@@ -25,7 +25,7 @@ class HomeDefaultLayout extends React.Component {
                 <body>
 
                     <div className="header">
-                        <div className="logo">Fitness <span>Tracker</span></div>
+                        <div className="logo">Health <span>Tracker</span></div>
                         { logoutElement }
                     </div>
 
@@ -53,7 +53,8 @@ class HomeDefaultLayout extends React.Component {
                             <div className="menu">
                                 <div><a href="/goal"><i class="fas fa-bullseye"></i>Set Target Weight</a></div>
                                 <div><a href="/stats"><i class="fas fa-chart-line"></i>Yours Statistics</a></div>
-                                <div><a href="/calorie_log"><i class="fas fa-utensils"></i>Your Calorie Intake</a></div>
+                                <hr/>
+                                <div><a href="/calorie_intake"><i class="fas fa-utensils"></i>Your Food Intake</a></div>
                                 <div><a href="/weight_log"><i class="fas fa-weight"></i>Your Weight Log</a></div>
 
                             </div>

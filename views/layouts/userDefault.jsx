@@ -17,7 +17,7 @@ class UserDefaultLayout extends React.Component {
 
                 <body>
                     <div className="header">
-                        <div className="logo">Fitness <span>Tracker</span></div>
+                        <div className="logo">Health <span>Tracker</span></div>
                     </div>
                     { this.props.children }
                 </body>
