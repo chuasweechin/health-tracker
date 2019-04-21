@@ -246,7 +246,11 @@ body {
 }
 
 .weightLog > table > thead > tr > .action {
-	width: 31%;
+	width: 18%;
+}
+
+.weightLog > table > tbody {
+	font-size: 14px;
 }
 
 .weightLog > table > tbody > tr > .increase {
@@ -313,7 +317,7 @@ body {
 }
 
 .calorieIntake > table > thead > tr > .date {
-	width: 26%;
+	width: 31%;
 }
 
 .calorieIntake > table > thead > tr > .calorie {
@@ -325,7 +329,11 @@ body {
 }
 
 .calorieIntake > table > thead > tr > .action {
-	width: 31%;
+	width: 24%;
+}
+
+.calorieIntake > table > tbody {
+	font-size: 14px;
 }
 
 .calorieIntake > table > tbody > tr > td > form {
@@ -333,6 +341,6 @@ body {
 	margin-left: 5px;
 }
 
-.calorieIntake > .table > tbody > tr > td > form > .add-new-weight-cancel {
+.calorieIntake > .table > tbody > tr > td > form > .add-new-calorie-cancel {
 	margin-left: 5px;
 }

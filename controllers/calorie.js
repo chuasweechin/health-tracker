@@ -36,7 +36,7 @@ module.exports = function(db) {
                     'current_height': request.cookies['current_height'],
                 }
 
-                data.calorie = await db.calorie.getAllCalorieIntake(data);
+                data.calories = await db.calorie.getAllCalorieIntake(data);
 
                 response.render('calorie_intake/view', data);
             } catch (e) {
@@ -51,8 +51,10 @@ module.exports = function(db) {
         } else {
             try {
                 let data = {
-                    'weight': request.body.weight,
-                    'username': request.cookies['username']
+                    'username': request.cookies['username'],
+                    'calorie': request.body.calorie,
+                    'description': request.body.description,
+                    'date': request.body.date
                 }
 
                 let result = await db.calorie.addCalorieIntake(data);
@@ -71,7 +73,7 @@ module.exports = function(db) {
             try {
                 let data = {
                     'username': request.cookies['username'],
-                    'weight_log_id': request.body.weight_log_id
+                    'calorie_intake_id': request.body.calorie_intake_id
                 }
 
                 await db.calorie.deleteCalorieIntake(data);

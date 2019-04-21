@@ -52,7 +52,7 @@ let addWeightEntryEventHandler = function () {
     let submitButtonElement = document.createElement('input');
     submitButtonElement.className = "btn btn-success add-new-weight";
     submitButtonElement.type = "submit";
-    submitButtonElement.value = "Add New Weight";
+    submitButtonElement.value = "Add";
     submitButtonElement.disabled = true;
 
     let cancelButtonElement = document.createElement('button');

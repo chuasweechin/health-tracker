@@ -19,7 +19,15 @@ module.exports.hash = function (str) {
     return sha256(str + SALT);
 }
 
-module.exports.formatDateTime = function (date) {
+module.exports.formatDate = function (date) {
+    return moment(date).format('YYYY-MM-DD');
+}
+
+module.exports.formatDateForDisplay = function (date) {
+    return moment(date).format('DD MMM YYYY');
+}
+
+module.exports.formatDateTimeForDisplay = function (date) {
     return moment(date).format('DD MMM YYYY, h:mm:ss a');
 }
 

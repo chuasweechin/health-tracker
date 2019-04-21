@@ -1,4 +1,5 @@
 const React = require("react");
+const helper = require('../../helper');
 const HomeDefaultLayout = require('../layouts/homeDefault');
 
 class AddGoal extends React.Component {
@@ -13,11 +14,14 @@ class AddGoal extends React.Component {
                     <div className="row">
                         <div className="col-8 target">
                             Your Target Weight (in kg):
-                            <input type="number" className="form-control target" name="target" value= {this.props.target_weight }/>
+                            <input type="number" className="form-control target" name="target_weight" value= {this.props.target_weight }/>
+                            <br/>
+                            To Achieve Target By:
+                            <input type="date" className="form-control target" name="target_date" defaultValue= { this.props.target_date }/>
                         </div>
                     </div>
 
-                    <input className="btn btn-primary" type="submit" value="Set Your Goal"/>
+                    <input className="btn btn-primary" type="submit" value="Set Your Target"/>
                 </div>
             </form>
 

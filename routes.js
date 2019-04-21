@@ -1,5 +1,4 @@
 module.exports = function (app, allModels) {
-    const homeController = require('./controllers/home')(allModels);
     const userController = require('./controllers/user')(allModels);
     const goalController = require('./controllers/goal')(allModels);
     const weightController = require('./controllers/weight')(allModels);

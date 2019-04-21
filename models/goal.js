@@ -4,15 +4,16 @@ module.exports = function(dbPoolInstance) {
 
     let addGoal = async function(input) {
         try {
-            const values = [input.target_weight, input.username];
+            const values = [input.target_weight, input.target_date, input.username];
 
             const sqlQuery = `UPDATE user_account
-                              SET target_weight = $1
-                              WHERE username= $2 RETURNING target_weight`;
+                              SET target_weight = $1, target_date = $2
+                              WHERE username= $3 RETURNING target_weight, target_date`;
 
             let result = await dbPoolInstance.query(sqlQuery, values);
-            console.log(result.rows[0].target_weight);
-            return result.rows[0].target_weight;
+
+
+            return result.rows[0];
 
         } catch(e) {
             console.log('addGoal model: ' + e);

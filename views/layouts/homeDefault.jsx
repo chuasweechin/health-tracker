@@ -51,11 +51,11 @@ class HomeDefaultLayout extends React.Component {
                             </div>
 
                             <div className="menu">
-                                <div><a href="/goal"><i class="fas fa-bullseye"></i>Set Target Weight</a></div>
-                                <div><a href="/stats"><i class="fas fa-chart-line"></i>Yours Statistics</a></div>
+                                <div><a href="/stats"><i className="fas fa-chart-line"></i>Your Statistics</a></div>
+                                <div><a href="/goal"><i className="fas fa-bullseye"></i>Set Your Target</a></div>
                                 <hr/>
-                                <div><a href="/calorie_intake"><i class="fas fa-utensils"></i>Your Food Intake</a></div>
-                                <div><a href="/weight_log"><i class="fas fa-weight"></i>Your Weight Log</a></div>
+                                <div><a href="/calorie_intake"><i className="fas fa-utensils"></i>Your Food Intake</a></div>
+                                <div><a href="/weight_log"><i className="fas fa-weight"></i>Your Weight Log</a></div>
 
                             </div>
                         </div>

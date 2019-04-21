@@ -14,7 +14,8 @@ module.exports = function(db) {
                     'age': request.cookies['age'],
                     'current_weight': request.cookies['current_weight'],
                     'current_height': request.cookies['current_height'],
-                    'target_weight': request.cookies['target_weight']
+                    'target_weight': request.cookies['target_weight'],
+                    'target_date': request.cookies['target_date']
                 }
 
                 response.render('goal/add', data);
@@ -37,12 +38,14 @@ module.exports = function(db) {
                     'age': request.cookies['age'],
                     'current_weight': request.cookies['current_weight'],
                     'current_height': request.cookies['current_height'],
-                    'target_weight': request.body.target
+                    'target_weight': request.body.target_weight,
+                    'target_date': request.body.target_date
                 }
 
                 let result = await db.goal.addGoal(data);
 
-                response.cookie('target_weight', result);
+                response.cookie('target_weight', result.target_weight);
+                response.cookie('target_date', helper.formatDate(result.target_date));
                 response.render('goal/add', data);
 
             } catch (e) {

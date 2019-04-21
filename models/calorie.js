@@ -19,11 +19,11 @@ module.exports = function(dbPoolInstance) {
 
     let addCalorieIntake = async function(input) {
         try {
-            const values = [input.username, input.weight, helper.getCurrentDateTime()];
+            const values = [input.username, input.calorie, input.description, input.date];
 
             const sqlQuery = `INSERT INTO user_calorie_intake
-                              (fk_user_account_username, calorie, created_at)
-                              VALUES ($1, $2, $3)`;
+                              (fk_user_account_username, calorie, description, created_at)
+                              VALUES ($1, $2, $3, $4)`;
 
             await dbPoolInstance.query(sqlQuery, values);
 

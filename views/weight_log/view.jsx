@@ -2,17 +2,17 @@ const React = require("react");
 const helper = require('../../helper');
 const HomeDefaultLayout = require('../layouts/homeDefault');
 
-class WeightLog extends React.Component {
+class Items extends React.Component {
   render() {
     let elements;
 
-    // this is to handle cases where the user only have 1 weight left in his weight log
-    // user should minimum have 1 weight entry in his weight log
+    // this is to handle cases where the user only have 1 weight left in user weight log
+    // user must have minimally have 1 weight entry in his weight log
     if (this.props.data.length === 1) {
         elements = this.props.data.map( (item, index) => {
 
             return  <tr>
-                        <td>{ helper.formatDateTime(item.created_at) }</td>
+                        <td>{ helper.formatDateTimeForDisplay(item.created_at) }</td>
                         <td>{ item.weight_in_kg } kg</td>
                         <td> N.A.</td>
                         <td></td>
@@ -31,7 +31,7 @@ class WeightLog extends React.Component {
             }
 
             return  <tr>
-                        <td>{ helper.formatDateTime(item.created_at) }</td>
+                        <td>{ helper.formatDateTimeForDisplay(item.created_at) }</td>
                         <td>{ item.weight_in_kg } kg</td>
                         <td className="difference">{ difference }</td>
                         <td>
@@ -72,7 +72,7 @@ class Home extends React.Component {
                     </tr>
                   </thead>
 
-                  <WeightLog data={ this.props.weights }/>
+                  <Items data={ this.props.weights }/>
 
                 </table>
             </div>

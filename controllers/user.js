@@ -26,6 +26,7 @@ module.exports = function(db) {
                 response.cookie('current_weight', result[0].weight_in_kg );
                 response.cookie('current_height', result[0].height_in_cm );
                 response.cookie('target_weight', result[0].target_weight );
+                response.cookie('target_date', helper.formatDate(result[0].target_date) );
                 response.cookie('username', result[0].username);
                 response.cookie('loggedIn', sha256(result[0].username + SALT));
                 response.cookie('username', result[0].username);
@@ -49,6 +50,7 @@ module.exports = function(db) {
             response.clearCookie('current_weight', request.cookies['current_weight']);
             response.clearCookie('current_height', request.cookies['current_height']);
             response.clearCookie('target_weight', request.cookies['target_weight']);
+            response.clearCookie('target_date', request.cookies['target_date'] );
             response.clearCookie('weightLog', request.cookies['weightLog']);
             response.clearCookie('loggedIn', request.cookies['loggedIn']);
         }
