@@ -55,11 +55,11 @@ class Items extends React.Component {
 class Home extends React.Component {
   render() {
     return (
-        <HomeDefaultLayout title="home" login="true" data= { this.props }>
+        <HomeDefaultLayout title="home" login="true" isActive="menuThree" data= { this.props }>
             <div className="weightLog">
                 <div className="title">
                     <h2>Weight History</h2>
-                    <button className="btn btn-success">Add New Entry</button>
+                    <button className="btn btn-success"><i className="fas fa-plus"></i>Add New Entry</button>
                 </div>
 
                 <table className="table table-bordered table-striped">

@@ -6,7 +6,7 @@ class AddGoal extends React.Component {
   render() {
 
     return (
-        <HomeDefaultLayout title="Goal" login="true" data= { this.props }>
+        <HomeDefaultLayout title="Goal" login="true"  isActive="menuFour" data= { this.props }>
             <form className="addGoal" action="/goal" method="POST">
                  <div className="container">
                     <h2>Weight Target</h2>

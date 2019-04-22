@@ -23,7 +23,8 @@ window.onload = function() {
                     ticks: {
                         callback: function(value, index, values) {
                             return moment(value).format("DD-MMM-YY");
-                        }
+                        },
+                        minRotation: 45
                     }
                 }],
                 yAxes: [{
@@ -119,6 +120,11 @@ window.onload = function() {
         }
     });
 
-    document.querySelector(".stats > .container > .row > .col-6 > .progress > .progress-bar ").style.width = `${(startingWeight - currentWeight) / (startingWeight - targetWeight) * 100}%`;
+    let totalWeightToLose = startingWeight - targetWeight;
+    let totalWeightThatHasBeenLost = startingWeight - currentWeight;
+
+    document.querySelector(".stats > .container > .row > .col-6 > .progress > .progress-bar ").style.width = `${totalWeightThatHasBeenLost / totalWeightToLose * 100}%`;
+
+   document.querySelector(".stats > .container > .row > .col-6 > .message ").innerHTML = `You have managed to lose ${totalWeightThatHasBeenLost} kg!`;
 
 }

@@ -3,11 +3,22 @@ const React = require('react');
 class HomeDefaultLayout extends React.Component {
   render() {
     let logoutElement;
+    let menuOne, menuTwo, menuThree, menuFour;
 
     if (this.props.login === "true") {
-        logoutElement = <div className="logout"><a href="/logout">Logout</a></div>;
+        logoutElement = <div className="logout"><a href="/logout">Logout <i class="fas fa-sign-out-alt"></i></a></div>;
     } else {
         logoutElement = <div className="logout"></div>;
+    }
+
+    if (this.props.isActive === "menuOne") {
+        menuOne = 'active';
+    } else if (this.props.isActive === "menuTwo") {
+        menuTwo = 'active';
+    } else if (this.props.isActive === "menuThree") {
+        menuThree = 'active';
+    } else if (this.props.isActive === "menuFour") {
+        menuFour = 'active';
     }
 
     return (
@@ -51,10 +62,10 @@ class HomeDefaultLayout extends React.Component {
                             </div>
 
                             <div className="menu">
-                                <div><a href="/stats"><i className="fas fa-chart-line"></i>Your Overall Statistics</a></div>
-                                <div><a href="/calorie_intake"><i className="fas fa-utensils"></i>Your Food Intake</a></div>
-                                <div><a href="/weight_log"><i className="fas fa-weight"></i>Your Weight History</a></div>
-                                <div><a href="/goal"><i className="fas fa-bullseye"></i>Your Weight Target</a></div>
+                                <div className={menuOne}><a href="/stats"><i className="fas fa-chart-line"></i>Your Overall Statistics</a></div>
+                                <div className={menuTwo}><a href="/calorie_intake"><i className="fas fa-utensils"></i>Your Food Intake</a></div>
+                                <div className={menuThree}><a href="/weight_log"><i className="fas fa-weight"></i>Your Weight History</a></div>
+                                <div className={menuFour}><a href="/goal"><i className="fas fa-bullseye"></i>Your Weight Target</a></div>
                             </div>
                         </div>
 

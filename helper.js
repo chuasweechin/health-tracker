@@ -31,6 +31,10 @@ module.exports.formatDateTimeForDisplay = function (date) {
     return moment(date).format('DD MMM YYYY, h:mm:ss a');
 }
 
+module.exports.getCurrentDate = function () {
+    return moment().format('YYYY-MM-DD');
+}
+
 module.exports.getCurrentDateTime = function () {
     return moment().format('YYYY MM DD, HH:mm:ss');
 }

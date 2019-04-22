@@ -36,8 +36,6 @@ module.exports = function(db) {
                     'date': request.body.date
                 }
 
-                console.log(request.body);
-
                 let result = await db.calorie.addCalorieIntake(data);
 
                 response.redirect('/calorie_intake');

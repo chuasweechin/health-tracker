@@ -5,14 +5,14 @@ const HomeDefaultLayout = require('../layouts/homeDefault');
 class Statistics extends React.Component {
   render() {
     return (
-        <HomeDefaultLayout title="home" login="true" data= { this.props }>
+        <HomeDefaultLayout title="home" login="true" isActive="menuOne" data= { this.props }>
             <div className="stats">
                 <h2>Overall Progress</h2>
                 <div className="container">
                     <div className="row">
                         <div className="col-3">
                             <div className="title">
-                                <h5>Starting</h5>
+                                <h5>Start Weight</h5>
                             </div>
                             <div className="weight">
                                 { this.props.starting_weight } kg
@@ -25,10 +25,13 @@ class Statistics extends React.Component {
 
                         <div className="col-6">
                             <div className="title">
-                                <h5>Current</h5>
+                                <h5>Current Weight</h5>
                             </div>
                             <div className="weight">
                                 { this.props.current_weight } <span>kg</span>
+                            </div>
+                            <div className="message">
+
                             </div>
                             <div className="progress">
                                 <div className="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
@@ -38,7 +41,7 @@ class Statistics extends React.Component {
 
                         <div className="col-3">
                             <div className="title">
-                                <h5>Target</h5>
+                                <h5>Target Weight</h5>
                             </div>
                             <div className="weight">
                                 { this.props.target_weight } kg
