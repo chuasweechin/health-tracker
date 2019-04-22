@@ -80,7 +80,7 @@ let addCalorieEntryEventHandler = function () {
     hiddenDescriptionInputElement.className = "description";
 
     let submitButtonElement = document.createElement('input');
-    submitButtonElement.className = "btn btn-success add-new-calorie";
+    submitButtonElement.className = "btn btn-primary add-new-calorie";
     submitButtonElement.type = "submit";
     submitButtonElement.value = "Add";
     submitButtonElement.disabled = true;
