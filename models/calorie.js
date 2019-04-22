@@ -1,6 +1,23 @@
 const helper = require('../helper');
 
 module.exports = function(dbPoolInstance) {
+    let getCalorieIntakeDataset = async function(input) {
+        try {
+            const values = [input.username];
+            const sqlQuery = `SELECT SUM(calorie) AS calorie_sum, created_at FROM user_calorie_intake
+                              WHERE fk_user_account_username = $1
+                              GROUP BY created_at
+                              ORDER BY created_at DESC`;
+
+            let result = await dbPoolInstance.query(sqlQuery, values);
+
+            return result.rows;
+
+        } catch(e) {
+            console.log('getAllCalorieIntake model: ' + e);
+        }
+    };
+
     let getAllCalorieIntake = async function(input) {
         try {
             const values = [input.username];
@@ -47,6 +64,7 @@ module.exports = function(dbPoolInstance) {
     };
 
   return {
+    getCalorieIntakeDataset,
     getAllCalorieIntake,
     addCalorieIntake,
     deleteCalorieIntake

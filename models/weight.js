@@ -1,6 +1,24 @@
 const helper = require('../helper');
 
 module.exports = function(dbPoolInstance) {
+    let getWeightDataset = async function(input) {
+        try {
+            const values = [input.username];
+            const sqlQuery = `SELECT * FROM user_weight_log WHERE created_at
+                              IN (SELECT MAX(created_at)
+                                  FROM user_weight_log
+                                  WHERE fk_user_account_username = $1
+                                  GROUP BY created_at::DATE);`;
+
+            let result = await dbPoolInstance.query(sqlQuery, values);
+
+            return result.rows;
+
+        } catch(e) {
+            console.log('getAllCalorieIntake model: ' + e);
+        }
+    };
+
     let getAllWeight = async function(input) {
         try {
             const values = [input.username];
@@ -30,6 +48,21 @@ module.exports = function(dbPoolInstance) {
 
         } catch(e) {
             console.log('getLatestWeight model: ' + e);
+        }
+    };
+
+    let getStartingWeight = async function(input) {
+        try {
+            const values = [input.username];
+            const sqlQuery = `SELECT * from user_weight_log
+                              WHERE fk_user_account_username = $1
+                              ORDER BY created_at ASC limit 1`;
+
+            let result = await dbPoolInstance.query(sqlQuery, values);
+            return result.rows;
+
+        } catch(e) {
+            console.log('getStartingWeight model: ' + e);
         }
     };
 
@@ -65,8 +98,10 @@ module.exports = function(dbPoolInstance) {
     };
 
   return {
+    getWeightDataset,
     getAllWeight,
     getLatestWeight,
+    getStartingWeight,
     addWeight,
     deleteWeight
   };

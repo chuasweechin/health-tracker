@@ -59,6 +59,7 @@ let addCalorieEntryEventHandler = function () {
     descriptionInputElement.type = "text";
     descriptionInputElement.className = "form-control";
 
+    descriptionInputElement.addEventListener('keyup', calorieInputEventHandler);
     cellElement_Three.appendChild(descriptionInputElement);
 
     // handling for cell four

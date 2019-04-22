@@ -1,7 +1,6 @@
 const helper = require('../helper');
 
 module.exports = function(dbPoolInstance) {
-
     let authenticate = async function(input) {
         try {
             const passwordHash = helper.hash(input.password)
@@ -42,7 +41,7 @@ module.exports = function(dbPoolInstance) {
 
     let updateUserWeight = async function(input) {
         try {
-            const values = [input.weight, helper.getCurrentDateTime(), input.username];
+            const values = [input.latestWeight, helper.getCurrentDateTime(), input.username];
 
             const sqlQuery = `UPDATE user_account
                               SET weight_in_kg = $1, updated_at = $2

@@ -9,11 +9,11 @@ class AddGoal extends React.Component {
         <HomeDefaultLayout title="Goal" login="true" data= { this.props }>
             <form className="addGoal" action="/goal" method="POST">
                  <div className="container">
-                    <h2>Set Your Target Weight</h2>
+                    <h2>Weight Target</h2>
 
                     <div className="row">
                         <div className="col-8 target">
-                            Your Target Weight (in kg):
+                            Target Weight (in kg):
                             <input type="number" className="form-control target" name="target_weight" value= {this.props.target_weight }/>
                             <br/>
                             To Achieve Target By:
@@ -21,7 +21,7 @@ class AddGoal extends React.Component {
                         </div>
                     </div>
 
-                    <input className="btn btn-primary" type="submit" value="Set Your Target"/>
+                    <input className="btn btn-primary" type="submit" value="Set Your Target Weight"/>
                 </div>
             </form>
 

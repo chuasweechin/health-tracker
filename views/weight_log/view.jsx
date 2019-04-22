@@ -58,7 +58,7 @@ class Home extends React.Component {
         <HomeDefaultLayout title="home" login="true" data= { this.props }>
             <div className="weightLog">
                 <div className="title">
-                    <h2>Your Weight Log</h2>
+                    <h2>Weight History</h2>
                     <button className="btn btn-success">Add New Entry</button>
                 </div>
 

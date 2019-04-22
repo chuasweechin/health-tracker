@@ -1,7 +1,6 @@
 const helper = require('../helper');
 
 module.exports = function(dbPoolInstance) {
-
     let addGoal = async function(input) {
         try {
             const values = [input.target_weight, input.target_date, input.username];

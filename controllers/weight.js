@@ -1,7 +1,6 @@
 const helper = require('../helper');
 
 module.exports = function(db) {
-
     let getWeightDatasetRequestHandler = async function(request, response) {
         if (helper.checkCookieForLogin(request.cookies) === false) {
             response.render('user/login');
@@ -86,12 +85,18 @@ module.exports = function(db) {
                 await db.weight.deleteWeight(data);
 
                 // get the latest weight after deletion in case the latest weight has been deleted
-                let result = await db.weight.getLatestWeight(data);
-                data.weight = result;
+                let latestWeightResult = await db.weight.getLatestWeight(data);
+                data.latestWeight = latestWeightResult;
 
                 // reset the user weight in cookies and database
-                response.cookie('current_weight', result);
+                response.cookie('current_weight', latestWeightResult);
                 await db.user.updateUserWeight(data);
+
+                // reset user cookie to reflect starting weight in case it has been deleted
+                let startingWeightresult = await db.weight.getStartingWeight(data);
+
+                response.cookie('starting_weight', startingWeightresult[0].weight_in_kg );
+                response.cookie('starting_date', helper.formatDate(startingWeightresult[0].created_at) );
 
                 response.redirect('/weight_log');
             } catch (e) {

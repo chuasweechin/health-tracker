@@ -51,7 +51,7 @@ class ViewCalorie extends React.Component {
         <HomeDefaultLayout title="home" login="true" data= { this.props }>
             <div className="calorieIntake">
                 <div className="title">
-                    <h2>Your Food Calorie Intake</h2>
+                    <h2>Food Calorie Intake</h2>
                     <button className="btn btn-primary">Add New Entry</button>
                 </div>
 

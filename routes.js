@@ -1,14 +1,15 @@
 module.exports = function (app, allModels) {
     const userController = require('./controllers/user')(allModels);
     const goalController = require('./controllers/goal')(allModels);
+    const chartController = require('./controllers/chart')(allModels);
     const weightController = require('./controllers/weight')(allModels);
     const calorieController = require('./controllers/calorie')(allModels);
 
     app.get('/goal', goalController.goalRequestHandler);
     app.post('/goal', goalController.addGoalRequestHandler);
 
-    app.get('/', weightController.getWeightDatasetRequestHandler);
-    app.get('/stats', weightController.getWeightDatasetRequestHandler);
+    app.get('/', chartController.getDatasetRequestHandler);
+    app.get('/stats', chartController.getDatasetRequestHandler);
 
     app.get('/calorie_intake', calorieController.getCalorieIntakeRequestHandler);
     app.post('/calorie_intake', calorieController.createCalorieIntakeRequestHandler);

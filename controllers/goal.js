@@ -1,7 +1,6 @@
 const helper = require('../helper');
 
 module.exports = function(db) {
-
     let goalRequestHandler = function (request, response) {
         if (helper.checkCookieForLogin(request.cookies) === false) {
             response.render('user/login');
@@ -46,7 +45,7 @@ module.exports = function(db) {
 
                 response.cookie('target_weight', result.target_weight);
                 response.cookie('target_date', helper.formatDate(result.target_date));
-                response.render('goal/add', data);
+                response.render('chart/view', data);
 
             } catch (e) {
                 console.log("addGoalRequestHandler controller:" + e);
