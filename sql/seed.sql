@@ -32,7 +32,7 @@ VALUES ('demo', 90, '2019-04-22 10:16:48');
 INSERT INTO user_calorie_intake (fk_user_account_username, calorie, description, created_at)
 VALUES ('demo', 800, 'Laksa', '2019-04-01 100:00:00');
 INSERT INTO user_calorie_intake (fk_user_account_username, calorie, description, created_at)
-VALUES ('demo', 400, 'Wanton Mee', '2019-04-01 100:00:00');
+VALUES ('demo', 400, 'Wanton Mee', '2019-04-01 00:00:00');
 INSERT INTO user_calorie_intake (fk_user_account_username, calorie, description, created_at)
 VALUES ('demo', 200, 'Sprite', '2019-04-01 100:00:00');
 
