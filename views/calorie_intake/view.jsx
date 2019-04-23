@@ -29,7 +29,6 @@ class Items extends React.Component {
                 </tr>
         });
 
-
     return (
         <tbody>
             { elements }
