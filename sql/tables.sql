@@ -23,5 +23,6 @@ CREATE TABLE IF NOT EXISTS user_calorie_intake (
     id SERIAL PRIMARY KEY,
     fk_user_account_username TEXT,
 		calorie DECIMAL,
+		description TEXT,
 		created_at TIMESTAMP
 );
