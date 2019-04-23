@@ -2,7 +2,7 @@
   "name": "fitness-tracker",
   "version": "1.0.0",
   "description": "Let's make a cool new app called TWEEDR!! Not Twitter, geez...",
-  "main": "index.js",
+  "main": "node index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
