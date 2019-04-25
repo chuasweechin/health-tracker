@@ -8,6 +8,7 @@ CREATE TABLE IF NOT EXISTS user_account (
     weight_in_kg DECIMAL,
     height_in_cm DECIMAL,
     target_weight DECIMAL,
+    target_date TIMESTAMP,
     created_at TIMESTAMP,
     updated_at TIMESTAMP
 );
