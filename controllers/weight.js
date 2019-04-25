@@ -86,7 +86,7 @@ module.exports = function(db) {
 
                 // get the latest weight after deletion in case the latest weight has been deleted
                 let latestWeightResult = await db.weight.getLatestWeight(data);
-                data.latestWeight = latestWeightResult;
+                data.weight = latestWeightResult;
 
                 // reset the user weight in cookies and database
                 response.cookie('current_weight', latestWeightResult);
